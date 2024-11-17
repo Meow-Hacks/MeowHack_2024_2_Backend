@@ -1,6 +1,7 @@
 const dbPool = require("../config/db");
 
 const getAuditories = async (req, res) => {
+    // #swagger.tags = ['Auditories']
     try {
         const query = `SELECT *
                        FROM auditories`;
@@ -13,6 +14,7 @@ const getAuditories = async (req, res) => {
 }
 
 const addAuditories = async (req, res) => {
+    // #swagger.tags = ['Auditories']
     const {name, capacity, branch_id} = req.body;
 
     if (!name) return res.status(400).json({message: "Name is required"});
@@ -30,6 +32,7 @@ const addAuditories = async (req, res) => {
 };
 
 const updateAuditories = async (req, res) => {
+    // #swagger.tags = ['Auditories']
     const {id} = req.params;
     const {name, capacity, branch_id} = req.body;
 
@@ -37,9 +40,9 @@ const updateAuditories = async (req, res) => {
 
     try {
         const query = `UPDATE auditories
-                       SET name      = $1,
-                           capacity  = $2,
-                           branch_id = $3
+                       SET name      = coalesce($1, name),
+                           capacity  = coalesce($2, capacity),
+                           branch_id = coalesce($3, branch_id)
                        WHERE id = $4
                        RETURNING *`;
         const {rows} = await dbPool.query(query, [name, capacity, branch_id, id]);
@@ -52,6 +55,7 @@ const updateAuditories = async (req, res) => {
 };
 
 const deleteAuditories = async (req, res) => {
+    // #swagger.tags = ['Auditories']
     const {id} = req.params;
 
     try {

@@ -1,6 +1,7 @@
 const dbPool = require("../config/db");
 
 const getBranch = async (req, res) => {
+    // #swagger.tags = ['Branches']
     try {
         const query = `SELECT *
                        FROM branches`;
@@ -13,6 +14,7 @@ const getBranch = async (req, res) => {
 }
 
 const addBranch = async (req, res) => {
+    // #swagger.tags = ['Branches']
     const {name, address} = req.body;
 
     if (!name) return res.status(400).json({message: "Name is required"});
@@ -30,6 +32,7 @@ const addBranch = async (req, res) => {
 };
 
 const updateBranch = async (req, res) => {
+    // #swagger.tags = ['Branches']
     const {id} = req.params;
     const {name, address} = req.body;
 
@@ -37,8 +40,8 @@ const updateBranch = async (req, res) => {
 
     try {
         const query = `UPDATE branches
-                       SET name    = $1,
-                           address = $2
+                       SET name    = coalesce($1, name),
+                           address = coalesce($2, address)
                        WHERE id = $3
                        RETURNING *`;
         const {rows} = await dbPool.query(query, [name, address, id]);
@@ -51,6 +54,7 @@ const updateBranch = async (req, res) => {
 };
 
 const deleteBranch = async (req, res) => {
+    // #swagger.tags = ['Branches']
     const {id} = req.params;
 
     try {

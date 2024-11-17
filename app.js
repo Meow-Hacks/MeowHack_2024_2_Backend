@@ -7,6 +7,9 @@ const instituteRoutes = require('./routes/institutesRoutes');
 const auditoriesRoutes = require('./routes/auditoriesRoutes');
 const groupsRoutes = require('./routes/groupsRoutes');
 const departmentsRoutes = require('./routes/departmentsRoutes');
+const adminsRoutes = require('./routes/adminsRoutes');
+const studentsRoutes = require('./routes/studentsRoutes');
+const teachersRoutes = require('./routes/teachersRoutes');
 
 
 const app = express();
@@ -18,6 +21,10 @@ app.use('/api/institutes', instituteRoutes);
 app.use('/api/auditories', auditoriesRoutes);
 app.use('/api/groups', groupsRoutes);
 app.use('/api/departments', departmentsRoutes);
+app.use('/api/admins', adminsRoutes);
+app.use('/api/students', studentsRoutes);
+app.use('/api/teachers', teachersRoutes);
+
 
 const PORT = process.env.APP_PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

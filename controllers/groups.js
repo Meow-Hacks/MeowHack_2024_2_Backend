@@ -1,6 +1,7 @@
 const dbPool = require("../config/db");
 
 const getGroups = async (req, res) => {
+    // #swagger.tags = ['Groups']
     try {
         const query = `SELECT *
                        FROM groups`;
@@ -13,6 +14,7 @@ const getGroups = async (req, res) => {
 }
 
 const addGroups = async (req, res) => {
+    // #swagger.tags = ['Groups']
     const {group_code, institute_id} = req.body;
 
     if (!name) return res.status(400).json({message: "Group code is required"});
@@ -30,6 +32,7 @@ const addGroups = async (req, res) => {
 };
 
 const updateGroups = async (req, res) => {
+    // #swagger.tags = ['Groups']
     const {id} = req.params;
     const {group_code, institute_id} = req.body;
 
@@ -37,8 +40,8 @@ const updateGroups = async (req, res) => {
 
     try {
         const query = `UPDATE groups
-                       SET group_code   = $1,
-                           institute_id = $2
+                       SET group_code   = coalesce($1, group_code),
+                           institute_id = coalesce($2, institute_id)
                        WHERE id = $3
                        RETURNING *`;
         const {rows} = await dbPool.query(query, [group_code, institute_id, id]);
@@ -51,6 +54,7 @@ const updateGroups = async (req, res) => {
 };
 
 const deleteGroups = async (req, res) => {
+    // #swagger.tags = ['Groups']
     const {id} = req.params;
 
     try {

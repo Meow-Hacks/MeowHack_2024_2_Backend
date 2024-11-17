@@ -1,6 +1,10 @@
 const jwt = require('jsonwebtoken');
 
 function checkAdmin(req, res, next) {
+    /* #swagger.security = [{
+            "bearerAuth": []
+    }] */
+
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
