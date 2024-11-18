@@ -10,6 +10,7 @@ const departmentsRoutes = require('./routes/departmentsRoutes');
 const adminsRoutes = require('./routes/adminsRoutes');
 const studentsRoutes = require('./routes/studentsRoutes');
 const teachersRoutes = require('./routes/teachersRoutes');
+const staffRoutes = require('./routes/staffRoutes');
 
 
 const app = express();
@@ -24,6 +25,7 @@ app.use('/api/departments', departmentsRoutes);
 app.use('/api/admins', adminsRoutes);
 app.use('/api/students', studentsRoutes);
 app.use('/api/teachers', teachersRoutes);
+app.use('/api/staff', staffRoutes);
 
 
 const PORT = process.env.APP_PORT;
