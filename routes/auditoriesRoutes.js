@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getAuditories, addAuditories, updateAuditories, deleteAuditories} = require('../controllers/auditories');
+const {getAuditories, addAuditories, updateAuditories, deleteAuditories} = require('../controllers/auditoryController');
 const checkAdmin = require('../middleware/checkAdmin');
 
 router.get('/', checkAdmin, getAuditories);

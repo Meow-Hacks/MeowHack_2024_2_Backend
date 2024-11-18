@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getBranch, addBranch, updateBranch, deleteBranch} = require('../controllers/branches');
+const {getBranch, addBranch, updateBranch, deleteBranch} = require('../controllers/branchController');
 const checkAdmin = require('../middleware/checkAdmin');
 
 router.get('/', checkAdmin, getBranch);

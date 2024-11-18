@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getInstitutes, addInstitutes, updateInstitutes, deleteInstitutes} = require('../controllers/institutes');
+const {getInstitutes, addInstitutes, updateInstitutes, deleteInstitutes} = require('../controllers/instituteController');
 const checkAdmin = require('../middleware/checkAdmin');
 
 router.get('/', checkAdmin, getInstitutes);

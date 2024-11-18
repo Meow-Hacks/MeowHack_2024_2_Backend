@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getAdmins, addAdmins, updateAdmins, deleteAdmins} = require('../controllers/admins');
+const {getAdmins, addAdmins, updateAdmins, deleteAdmins} = require('../controllers/adminController');
 const checkAdmin = require('../middleware/checkAdmin');
 
 router.get('/', checkAdmin, getAdmins);

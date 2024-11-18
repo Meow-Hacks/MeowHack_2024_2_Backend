@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getGroups, addGroups, updateGroups, deleteGroups} = require('../controllers/groups');
+const {getGroups, addGroups, updateGroups, deleteGroups} = require('../controllers/groupController');
 const checkAdmin = require('../middleware/checkAdmin');
 
 router.get('/', checkAdmin, getGroups);

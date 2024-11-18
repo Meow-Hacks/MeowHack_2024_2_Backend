@@ -138,9 +138,6 @@
           "403": {
             "description": "Forbidden"
           },
-          "404": {
-            "description": "Not Found"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -339,9 +336,6 @@
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -545,9 +539,6 @@
           "403": {
             "description": "Forbidden"
           },
-          "404": {
-            "description": "Not Found"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -750,9 +741,6 @@
           "403": {
             "description": "Forbidden"
           },
-          "404": {
-            "description": "Not Found"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -952,9 +940,6 @@
           "403": {
             "description": "Forbidden"
           },
-          "404": {
-            "description": "Not Found"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -1045,7 +1030,40 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "secondname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "role_id": {
+                        "type": "integer"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "phone": {
+                        "type": "string"
+                      },
+                      "mail": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "401": {
             "description": "Unauthorized"
@@ -1098,14 +1116,59 @@
           {
             "bearerAuth": []
           }
-        ]
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "secondname": {
+                      "type": "string"
+                    },
+                    "lastname": {
+                      "type": "string"
+                    },
+                    "role_id": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string"
+                    },
+                    "mail": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "lastname",
+                    "role_id",
+                    "code",
+                    "phone",
+                    "mail",
+                    "password"
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/admins/{id}": {
       "put": {
-        "tags": [
-          "Admins"
-        ],
         "description": "",
         "parameters": [
           {
@@ -1125,67 +1188,20 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [
           {
             "bearerAuth": []
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "example": "any"
-                  },
-                  "secondname": {
-                    "example": "any"
-                  },
-                  "lastname": {
-                    "example": "any"
-                  },
-                  "role_id": {
-                    "example": "any"
-                  },
-                  "code": {
-                    "example": "any"
-                  },
-                  "phone": {
-                    "example": "any"
-                  },
-                  "mail": {
-                    "example": "any"
-                  },
-                  "password": {
-                    "example": "any"
-                  }
-                }
-              }
-            }
-          }
-        }
+        ]
       },
       "delete": {
-        "tags": [
-          "Admins"
-        ],
         "description": "",
         "parameters": [
           {
@@ -1205,20 +1221,11 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -1245,7 +1252,46 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "secondname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "role_id": {
+                        "type": "integer"
+                      },
+                      "group_id": {
+                        "type": "integer"
+                      },
+                      "institute_id": {
+                        "type": "integer"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "phone": {
+                        "type": "string"
+                      },
+                      "mail": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "401": {
             "description": "Unauthorized"
@@ -1298,7 +1344,63 @@
           {
             "bearerAuth": []
           }
-        ]
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "secondname": {
+                      "type": "string"
+                    },
+                    "lastname": {
+                      "type": "string"
+                    },
+                    "role_id": {
+                      "type": "integer"
+                    },
+                    "group_id": {
+                      "type": "integer"
+                    },
+                    "institute_id": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string"
+                    },
+                    "mail": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "lastname",
+                    "role_id",
+                    "code",
+                    "group_id",
+                    "institute_id",
+                    "phone",
+                    "mail",
+                    "password"
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/students/{id}": {
@@ -1333,9 +1435,6 @@
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -1390,7 +1489,7 @@
       },
       "delete": {
         "tags": [
-          "Student"
+          "Students"
         ],
         "description": "",
         "parameters": [
@@ -1451,7 +1550,46 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "secondname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "role_id": {
+                        "type": "integer"
+                      },
+                      "department_id": {
+                        "type": "integer"
+                      },
+                      "institute_id": {
+                        "type": "integer"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "phone": {
+                        "type": "string"
+                      },
+                      "mail": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "401": {
             "description": "Unauthorized"
@@ -1504,7 +1642,63 @@
           {
             "bearerAuth": []
           }
-        ]
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "secondname": {
+                      "type": "string"
+                    },
+                    "lastname": {
+                      "type": "string"
+                    },
+                    "role_id": {
+                      "type": "integer"
+                    },
+                    "group_id": {
+                      "type": "integer"
+                    },
+                    "department_id": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string"
+                    },
+                    "mail": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "lastname",
+                    "role_id",
+                    "code",
+                    "group_id",
+                    "department_id",
+                    "phone",
+                    "mail",
+                    "password"
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/teachers/{id}": {
@@ -1539,9 +1733,6 @@
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -1654,7 +1845,40 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "secondname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "role_id": {
+                        "type": "integer"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "phone": {
+                        "type": "string"
+                      },
+                      "mail": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "401": {
             "description": "Unauthorized"
@@ -1707,7 +1931,51 @@
           {
             "bearerAuth": []
           }
-        ]
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "secondname": {
+                      "type": "string"
+                    },
+                    "lastname": {
+                      "type": "string"
+                    },
+                    "role_id": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string"
+                    },
+                    "mail": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "lastname",
+                    "role_id",
+                    "code",
+                    "phone",
+                    "mail"
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/staff/{id}": {
