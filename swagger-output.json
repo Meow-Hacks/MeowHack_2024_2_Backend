@@ -1058,6 +1058,9 @@
                       },
                       "mail": {
                         "type": "string"
+                      },
+                      "enter_token": {
+                        "type": "string"
                       }
                     }
                   }
@@ -1285,6 +1288,9 @@
                         "type": "string"
                       },
                       "mail": {
+                        "type": "string"
+                      },
+                      "enter_token": {
                         "type": "string"
                       }
                     }
@@ -1573,9 +1579,6 @@
                       "department_id": {
                         "type": "integer"
                       },
-                      "institute_id": {
-                        "type": "integer"
-                      },
                       "code": {
                         "type": "string"
                       },
@@ -1583,6 +1586,9 @@
                         "type": "string"
                       },
                       "mail": {
+                        "type": "string"
+                      },
+                      "enter_token": {
                         "type": "string"
                       }
                     }
@@ -1664,9 +1670,6 @@
                     "role_id": {
                       "type": "integer"
                     },
-                    "group_id": {
-                      "type": "integer"
-                    },
                     "department_id": {
                       "type": "integer"
                     },
@@ -1688,7 +1691,6 @@
                     "lastname",
                     "role_id",
                     "code",
-                    "group_id",
                     "department_id",
                     "phone",
                     "mail",
@@ -1872,6 +1874,9 @@
                         "type": "string"
                       },
                       "mail": {
+                        "type": "string"
+                      },
+                      "enter_token": {
                         "type": "string"
                       }
                     }

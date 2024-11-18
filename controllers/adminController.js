@@ -16,7 +16,8 @@ const getAdmins = async (req, res) => {
                  role_id: { type: "integer" },
                  code: { type: "string" },
                  phone: { type: "string" },
-                 mail: { type: "string" }
+                 mail: { type: "string" },
+                 enter_token: { type: "string" }
                }
              }
            }

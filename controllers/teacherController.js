@@ -15,10 +15,10 @@ const getTeachers = async (req, res) => {
                   lastname: { type: "string" },
                   role_id: { type: "integer" },
                   department_id: { type: "integer" },
-                  institute_id: { type: "integer" },
                   code: { type: "string" },
                   phone: { type: "string" },
-                  mail: { type: "string" }
+                  mail: { type: "string" },
+                  enter_token: { type: "string" }
                 }
               }
             }
@@ -49,14 +49,13 @@ const addTeachers = async (req, res) => {
                       secondname: { type: "string" },
                       lastname: { type: "string" },
                       role_id: { type: "integer" },
-                      group_id: { type: "integer" },
                       department_id: { type: "integer" },
                       code: { type: "string" },
                       phone: { type: "string" },
                       mail: { type: "string" },
                       password: { type: "string" }
                     },
-                    required: ["name", "lastname", "role_id", "code", "group_id", "department_id", "phone", "mail", "password"]
+                    required: ["name", "lastname", "role_id", "code", "department_id", "phone", "mail", "password"]
                   }
                 }
               }

@@ -18,7 +18,8 @@ const getStudents = async (req, res) => {
                   institute_id: { type: "integer" },
                   code: { type: "string" },
                   phone: { type: "string" },
-                  mail: { type: "string" }
+                  mail: { type: "string" },
+                  enter_token: { type: "string" }
                 }
               }
             }
