@@ -2,8 +2,8 @@
   "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
-    "title": "REST API",
-    "description": ""
+    "title": "AdminService",
+    "description": "Api for university admins"
   },
   "servers": [
     {

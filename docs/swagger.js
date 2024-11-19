@@ -3,8 +3,8 @@ const swaggerAutogen = require('swagger-autogen')({openapi: '3.0.0'});
 const doc = {
     info: {
         version: '',
-        title: '',
-        description: ''
+        title: 'AdminService',
+        description: 'Api for university admins'
     },
     servers: [
         {
