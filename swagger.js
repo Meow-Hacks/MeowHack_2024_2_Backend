@@ -22,7 +22,7 @@ const doc = {
     }
 };
 
-const outputFile = './swagger-output.json';
+const outputFile = './docs/swagger.json';
 const routes = ['./app.js'];
 
 swaggerAutogen(outputFile, routes, doc);

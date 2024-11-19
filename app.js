@@ -1,7 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger-output.json');
+const swaggerDocument = require('./docs/swagger.json');
 const branchRoutes = require('./routes/branchesRoutes');
 const instituteRoutes = require('./routes/institutesRoutes');
 const auditoriesRoutes = require('./routes/auditoriesRoutes');
