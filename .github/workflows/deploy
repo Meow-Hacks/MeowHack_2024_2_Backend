@@ -1,0 +1,52 @@
+name: Deploy Swagger Documentation
+
+on:
+  push:
+    branches:
+      - UsersMicroservice
+      - LoginMicroservice
+      - adminMicroservice
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Гарантирует доступ ко всем веткам
+
+      - name: Check if /docs exists
+        run: |
+          if [ -d "./docs" ]; then
+            echo "Docs directory exists."
+          else
+            echo "No docs directory found. Exiting..."
+            exit 0
+          fi
+
+      - name: Modify swagger.json (if exists)
+        run: |
+          if [ -f "./docs/swagger.json" ]; then
+            sed -i '1s|{|{"swagger": "2.0",|' ./docs/swagger.json
+          fi
+
+      - name: Copy /docs to output directory
+        run: |
+          BRANCH_NAME=$(echo "${GITHUB_REF##*/}" | tr '[:upper:]' '[:lower:]' | sed 's/microservice//')
+          mkdir -p output/$BRANCH_NAME
+          cp -r ./docs/* output/$BRANCH_NAME/
+
+      - name: Checkout to swagger-page branch
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git checkout swagger-page || git checkout -b swagger-page
+
+      - name: Copy output to swagger-page
+        run: |
+          cp -r output/* .
+          git add .
+          git commit -m "Update Swagger documentation from ${GITHUB_REF##*/}"
+          git push origin swagger-page
+
