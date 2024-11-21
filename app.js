@@ -13,6 +13,7 @@ const teachersRoutes = require('./routes/teachersRoutes');
 const staffRoutes = require('./routes/staffRoutes');
 const entranceHistoryRoutes = require('./routes/entranceHistoryRoutes');
 const attendanceRoutes = require('./routes/attendanceRoutes');
+const accessControlRoutes = require('./routes/accessControlRoutes');
 
 
 const app = express();
@@ -33,6 +34,7 @@ app.use('/api/staff', staffRoutes);
 
 app.use('/api/entrance-history', entranceHistoryRoutes);
 app.use('/api/attendance', attendanceRoutes);
+app.use('/api/access-control', accessControlRoutes);
 
 const PORT = process.env.APP_PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

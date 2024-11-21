@@ -11,7 +11,7 @@ const getStudentAttendance = async (req, res) => {
         console.error(err);
         res.status(500).json({message: "Database error"});
     }
-}
+};
 
 const getLessonAttendance = async (req, res) => {
     // #swagger.tags = ['Attendance']
@@ -24,6 +24,6 @@ const getLessonAttendance = async (req, res) => {
         console.error(err);
         res.status(500).json({message: "Database error"});
     }
-}
+};
 
 module.exports = {getStudentAttendance, getLessonAttendance};
