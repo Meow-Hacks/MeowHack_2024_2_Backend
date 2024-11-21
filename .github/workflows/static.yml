@@ -1,0 +1,105 @@
+name: Deploy Swagger Documentation to GitHub Pages
+
+on:
+  push:
+    branches:
+      - '*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Забираем все ветки для доступа
+
+      - name: Loop through target branches
+        run: |
+          branches=("UsersMicroservice" "LoginMicroservice" "adminMicroservice")
+          for branch in "${branches[@]}"; do
+            echo "Checking out branch: $branch"
+            git checkout $branch
+
+            # Определение имени подкаталога
+            BRANCH_NAME=$(echo "$branch" | tr '[:upper:]' '[:lower:]' | sed 's/microservice//')
+            mkdir -p output/$BRANCH_NAME
+
+            # Проверка и копирование файлов из /docs
+            if [ -d "./docs" ]; then
+              echo "Docs directory exists for $branch."
+              cp -r ./docs/* output/$BRANCH_NAME/
+            else
+              echo "No docs directory found for $branch. Creating placeholder index.html."
+              echo "<!DOCTYPE html><html><body><h1>No documentation available for $BRANCH_NAME</h1></body></html>" > output/$BRANCH_NAME/index.html
+            fi
+
+            # Модификация swagger.json, если существует
+            if [ -f "output/${BRANCH_NAME}/swagger.json" ]; then
+              if grep -q '"swagger":' output/${BRANCH_NAME}/swagger.json; then
+                echo "swagger.json already contains 'swagger' key for $BRANCH_NAME. No modification needed."
+              elif grep -q '"openapi": "3.0.0"' output/${BRANCH_NAME}/swagger.json; then
+                echo "swagger.json contains 'openapi: 3.0.0' for $BRANCH_NAME. No modification needed."
+              else
+                echo "Adding 'swagger': '2.0' to swagger.json for $BRANCH_NAME"
+                sed -i '1s|{|{"swagger": "2.0",|' output/${BRANCH_NAME}/swagger.json
+              fi
+            else
+              echo "No swagger.json found for $BRANCH_NAME."
+            fi
+
+            echo "Contents of output/$BRANCH_NAME:"
+            ls output/$BRANCH_NAME || echo "Directory is empty."
+          done
+
+      - name: Create root HTML file
+        run: |
+          cat <<EOF > output/index.html
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Deployment Successful</title>
+          </head>
+          <body>
+              <h1>Deployment Successful</h1>
+              <p>The deployment of your Swagger documentation has been completed successfully.</p>
+              <h2>Available Documentation:</h2>
+              <ul>
+                  <li><a href="users/">Users Microservice Documentation</a></li>
+                  <li><a href="login/">Login Microservice Documentation</a></li>
+                  <li><a href="admin/">Admin Microservice Documentation</a></li>
+              </ul>
+          </body>
+          </html>
+          EOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './output'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Output deployed URLs
+        run: |
+          echo "Root URL: https://<your-username>.github.io/<your-repository>/"
+          echo "Users Microservice URL: https://<your-username>.github.io/<your-repository>/users/"
+          echo "Login Microservice URL: https://<your-username>.github.io/<your-repository>/login/"
+          echo "Admin Microservice URL: https://<your-username>.github.io/<your-repository>/admin/"
