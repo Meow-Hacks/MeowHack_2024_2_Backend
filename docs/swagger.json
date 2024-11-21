@@ -2166,10 +2166,10 @@
         ]
       }
     },
-    "/api/entry-exit-history/students": {
+    "/api/entrance-history/students": {
       "get": {
         "tags": [
-          "Entry Exit history"
+          "Entrance history"
         ],
         "description": "",
         "parameters": [
@@ -2202,10 +2202,10 @@
         ]
       }
     },
-    "/api/entry-exit-history/teachers": {
+    "/api/entrance-history/teachers": {
       "get": {
         "tags": [
-          "Entry Exit history"
+          "Entrance history"
         ],
         "description": "",
         "parameters": [
@@ -2238,10 +2238,10 @@
         ]
       }
     },
-    "/api/entry-exit-history/admins": {
+    "/api/entrance-history/admins": {
       "get": {
         "tags": [
-          "Entry Exit history"
+          "Entrance history"
         ],
         "description": "",
         "parameters": [
@@ -2274,10 +2274,10 @@
         ]
       }
     },
-    "/api/entry-exit-history/staff": {
+    "/api/entrance-history/staff": {
       "get": {
         "tags": [
-          "Entry Exit history"
+          "Entrance history"
         ],
         "description": "",
         "parameters": [

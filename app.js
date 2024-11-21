@@ -11,7 +11,7 @@ const adminsRoutes = require('./routes/adminsRoutes');
 const studentsRoutes = require('./routes/studentsRoutes');
 const teachersRoutes = require('./routes/teachersRoutes');
 const staffRoutes = require('./routes/staffRoutes');
-const entryExitHistoryRoutes = require('./routes/entryExitHistoryRoutes');
+const entranceHistoryRoutes = require('./routes/entranceHistoryRoutes');
 
 
 const app = express();
@@ -30,7 +30,7 @@ app.use('/api/students', studentsRoutes);
 app.use('/api/teachers', teachersRoutes);
 app.use('/api/staff', staffRoutes);
 
-app.use('/api/entry-exit-history', entryExitHistoryRoutes);
+app.use('/api/entrance-history', entranceHistoryRoutes);
 
 const PORT = process.env.APP_PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
