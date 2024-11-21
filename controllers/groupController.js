@@ -35,7 +35,7 @@ const updateGroups = async (req, res) => {
 
     try {
         const updatedGroup = await groupsModel.updateGroup(id, group_code, institute_id);
-        res.json(updatedGroup);
+        res.status(200).json(updatedGroup);
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});
@@ -49,7 +49,7 @@ const deleteGroups = async (req, res) => {
     try {
         const result = await groupsModel.deleteGroup(id);
         if (!result) return res.status(404).json({message: "Group not found"});
-        res.json({message: "Group deleted", group: result});
+        res.status(200).json({message: "Group deleted", group: result});
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});

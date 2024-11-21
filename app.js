@@ -12,6 +12,7 @@ const studentsRoutes = require('./routes/studentsRoutes');
 const teachersRoutes = require('./routes/teachersRoutes');
 const staffRoutes = require('./routes/staffRoutes');
 const entranceHistoryRoutes = require('./routes/entranceHistoryRoutes');
+const attendanceRoutes = require('./routes/attendanceRoutes');
 
 
 const app = express();
@@ -31,6 +32,7 @@ app.use('/api/teachers', teachersRoutes);
 app.use('/api/staff', staffRoutes);
 
 app.use('/api/entrance-history', entranceHistoryRoutes);
+app.use('/api/attendance', attendanceRoutes);
 
 const PORT = process.env.APP_PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

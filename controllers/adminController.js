@@ -91,7 +91,7 @@ const updateAdmins = async (req, res) => {
             password
         });
         if (admin.length === 0) return res.status(404).json({message: "Admin not found"});
-        res.json(admin);
+        res.status(200).json(admin);
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});
@@ -105,7 +105,7 @@ const deleteAdmins = async (req, res) => {
     try {
         const admin = await adminModel.deleteAdmin(id);
         if (admin.length === 0) return res.status(404).json({message: "Admin not found"});
-        res.json({message: "Admin deleted", admin: admin});
+        res.status(200).json({message: "Admin deleted", admin: admin});
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});

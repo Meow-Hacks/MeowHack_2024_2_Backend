@@ -35,7 +35,7 @@ const updateInstitutes = async (req, res) => {
 
     try {
         const updatedInstitute = await institutesModel.updateInstitute(id, name, branch_id);
-        res.json(updatedInstitute);
+        res.status(200).json(updatedInstitute);
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});
@@ -49,7 +49,7 @@ const deleteInstitutes = async (req, res) => {
     try {
         const result = await institutesModel.deleteInstitute(id);
         if (!result) return res.status(404).json({message: "Institute not found"});
-        res.json({message: "Institute deleted", institute: result});
+        res.status(200).json({message: "Institute deleted", institute: result});
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});

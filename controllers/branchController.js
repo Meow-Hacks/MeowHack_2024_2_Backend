@@ -35,7 +35,7 @@ const updateBranch = async (req, res) => {
 
     try {
         const updatedBranch = await branchesModel.updateBranch(id, name, address);
-        res.json(updatedBranch);
+        res.status(200).json(updatedBranch);
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});
@@ -49,7 +49,7 @@ const deleteBranch = async (req, res) => {
     try {
         const result = await branchesModel.deleteBranch(id);
         if (!result) return res.status(404).json({message: "Branch not found"});
-        res.json({message: "Branch deleted", branch: result});
+        res.status(200).json({message: "Branch deleted", branch: result});
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});

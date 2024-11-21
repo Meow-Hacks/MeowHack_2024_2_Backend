@@ -33,7 +33,7 @@ const updateAuditories = async (req, res) => {
 
     try {
         const updatedAuditory = await auditoriesModel.updateAuditory(id, name, capacity, branch_id);
-        res.json(updatedAuditory);
+        res.status(200).json(updatedAuditory);
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});
@@ -47,7 +47,7 @@ const deleteAuditories = async (req, res) => {
     try {
         const result = await auditoriesModel.deleteAuditory(id);
         if (!result) return res.status(404).json({message: "Auditory not found"});
-        res.json({message: "Auditory deleted", branch: result});
+        res.status(200).json({message: "Auditory deleted", branch: result});
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});

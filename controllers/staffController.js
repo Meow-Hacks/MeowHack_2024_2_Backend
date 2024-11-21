@@ -81,7 +81,7 @@ const updateStaff = async (req, res) => {
     try {
         const staff = await staffModel.updateStaff(id, {name, secondname, lastname, role_id, code, phone, mail});
         if (!staff) return res.status(404).json({message: "Staff not found"});
-        res.json(staff);
+        res.status(200).json(staff);
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});
@@ -95,7 +95,7 @@ const deleteStaff = async (req, res) => {
     try {
         const staff = await staffModel.deleteStaff(id);
         if (!staff) return res.status(404).json({message: "Staff not found"});
-        res.json({message: "Staff deleted", staff});
+        res.status(200).json({message: "Staff deleted", staff});
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});

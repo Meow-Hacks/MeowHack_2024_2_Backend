@@ -83,7 +83,7 @@ const updateTeachers = async (req, res) => {
 
     try {
         const updatedTeacher = await teachersModel.updateTeacher(id, name, secondname, lastname, role_id, department_id, code, phone, mail, password);
-        res.json(updatedTeacher);
+        res.status(200).json(updatedTeacher);
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});
@@ -97,7 +97,7 @@ const deleteTeachers = async (req, res) => {
     try {
         const result = await teachersModel.deleteTeacher(id);
         if (!result) return res.status(404).json({message: "Teacher not found"});
-        res.json({message: "Teacher deleted", teacher: result});
+        res.status(200).json({message: "Teacher deleted", teacher: result});
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});
