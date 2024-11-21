@@ -74,7 +74,7 @@ const addAdmins = async (req, res) => {
     }
 };
 
-const updateAdmin = async (req, res) => {
+const updateAdmins = async (req, res) => {
     // #swagger.tags = ['Admins']
     const {id} = req.params;
     const {name, secondname, lastname, role_id, code, phone, mail, password} = req.body;
@@ -98,7 +98,7 @@ const updateAdmin = async (req, res) => {
     }
 };
 
-const deleteAdmin = async (req, res) => {
+const deleteAdmins = async (req, res) => {
     // #swagger.tags = ['Admins']
     const {id} = req.params;
 
@@ -112,4 +112,4 @@ const deleteAdmin = async (req, res) => {
     }
 };
 
-module.exports = {getAdmins, addAdmins, updateAdmin, deleteAdmin};
+module.exports = {getAdmins, addAdmins, updateAdmins, deleteAdmins};
