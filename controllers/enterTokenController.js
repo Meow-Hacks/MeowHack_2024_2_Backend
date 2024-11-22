@@ -12,12 +12,12 @@ const generateEnterToken = async (req, res) => {
         }
 
         const tokenPayload = {
-            id: user.id,
-            name: user.name,
-            secondname: user.secondname,
-            lastname: user.lastname,
-            role_id: user.role_id,
-            code: user.code
+            id: user[0].id,
+            name: user[0].name,
+            secondname: user[0].secondname,
+            lastname: user[0].lastname,
+            role_id: user[0].role_id,
+            code: user[0].code
         };
 
         const token = jwt.sign(tokenPayload, process.env.SECRET_KEY, {expiresIn: '365d'});
