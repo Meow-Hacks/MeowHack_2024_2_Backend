@@ -15,6 +15,7 @@ const entranceHistoryRoutes = require('./routes/entranceHistoryRoutes');
 const attendanceRoutes = require('./routes/attendanceRoutes');
 const accessControlRoutes = require('./routes/accessControlRoutes');
 const accessHistoryRoutes = require('./routes/accessHistoryRoutes');
+const enterTokenRoutes = require('./routes/enterTokenRoutes');
 
 
 const app = express();
@@ -37,6 +38,8 @@ app.use('/api/entrance-history', entranceHistoryRoutes);
 app.use('/api/attendance', attendanceRoutes);
 app.use('/api/access-control', accessControlRoutes);
 app.use('/api/access-history', accessHistoryRoutes);
+
+app.use('/api/enter-token', enterTokenRoutes);
 
 const PORT = process.env.APP_PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
