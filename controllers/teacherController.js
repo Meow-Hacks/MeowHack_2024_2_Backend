@@ -50,12 +50,10 @@ const addTeachers = async (req, res) => {
                       lastname: { type: "string" },
                       role_id: { type: "integer" },
                       department_id: { type: "integer" },
-                      code: { type: "string" },
                       phone: { type: "string" },
-                      mail: { type: "string" },
-                      password: { type: "string" }
+                      mail: { type: "string" }
                     },
-                    required: ["name", "lastname", "role_id", "code", "department_id", "phone", "mail", "password"]
+                    required: ["name", "lastname", "role_id", "department_id", "phone", "mail"]
                   }
                 }
               }
@@ -79,10 +77,10 @@ const addTeachers = async (req, res) => {
 const updateTeachers = async (req, res) => {
     // #swagger.tags = ['Teachers']
     const {id} = req.params;
-    const {name, secondname, lastname, role_id, department_id, code, phone, mail, password} = req.body;
+    const {name, secondname, lastname, role_id, department_id, phone, mail} = req.body;
 
     try {
-        const updatedTeacher = await teachersModel.updateTeacher(id, name, secondname, lastname, role_id, department_id, code, phone, mail, password);
+        const updatedTeacher = await teachersModel.updateTeacher(id, name, secondname, lastname, role_id, department_id, phone, mail);
         res.status(200).json(updatedTeacher);
     } catch (err) {
         console.error(err);

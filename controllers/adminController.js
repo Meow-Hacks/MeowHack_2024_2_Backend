@@ -48,12 +48,10 @@ const addAdmins = async (req, res) => {
                       secondname: { type: "string" },
                       lastname: { type: "string" },
                       role_id: { type: "integer" },
-                      code: { type: "string" },
                       phone: { type: "string" },
-                      mail: { type: "string" },
-                      password: { type: "string" }
+                      mail: { type: "string" }
                     },
-                    required: ["name", "lastname", "role_id", "code", "phone", "mail", "password"]
+                    required: ["name", "lastname", "role_id", "phone", "mail"]
                   }
                 }
               }
@@ -77,7 +75,7 @@ const addAdmins = async (req, res) => {
 const updateAdmins = async (req, res) => {
     // #swagger.tags = ['Admins']
     const {id} = req.params;
-    const {name, secondname, lastname, role_id, code, phone, mail, password} = req.body;
+    const {name, secondname, lastname, role_id, phone, mail} = req.body;
 
     try {
         const admin = await adminModel.updateAdmin(id, {
@@ -85,10 +83,8 @@ const updateAdmins = async (req, res) => {
             secondname,
             lastname,
             role_id,
-            code,
             phone,
-            mail,
-            password
+            mail
         });
         if (admin.length === 0) return res.status(404).json({message: "Admin not found"});
         res.status(200).json(admin);

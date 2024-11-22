@@ -52,12 +52,10 @@ const addStudents = async (req, res) => {
                       role_id: { type: "integer" },
                       group_id: { type: "integer" },
                       institute_id: { type: "integer" },
-                      code: { type: "string" },
                       phone: { type: "string" },
-                      mail: { type: "string" },
-                      password: { type: "string" }
+                      mail: { type: "string" }
                     },
-                    required: ["name", "lastname", "role_id", "code", "group_id", "institute_id", "phone", "mail", "password"]
+                    required: ["name", "lastname", "role_id", "group_id", "institute_id", "phone", "mail"]
                   }
                 }
               }
@@ -81,10 +79,10 @@ const addStudents = async (req, res) => {
 const updateStudents = async (req, res) => {
     // #swagger.tags = ['Students']
     const {id} = req.params;
-    const {name, secondname, lastname, role_id, group_id, institute_id, code, phone, mail, password} = req.body;
+    const {name, secondname, lastname, role_id, group_id, institute_id, phone, mail} = req.body;
 
     try {
-        const updatedStudent = await studentsModel.updateStudent(id, name, secondname, lastname, role_id, group_id, institute_id, code, phone, mail, password);
+        const updatedStudent = await studentsModel.updateStudent(id, name, secondname, lastname, role_id, group_id, institute_id, phone, mail);
         res.status(200).json(updatedStudent);
     } catch (err) {
         console.error(err);

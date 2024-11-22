@@ -1141,16 +1141,10 @@
                     "role_id": {
                       "type": "integer"
                     },
-                    "code": {
-                      "type": "string"
-                    },
                     "phone": {
                       "type": "string"
                     },
                     "mail": {
-                      "type": "string"
-                    },
-                    "password": {
                       "type": "string"
                     }
                   },
@@ -1158,10 +1152,8 @@
                     "name",
                     "lastname",
                     "role_id",
-                    "code",
                     "phone",
-                    "mail",
-                    "password"
+                    "mail"
                   ]
                 }
               }
@@ -1233,16 +1225,10 @@
                   "role_id": {
                     "example": "any"
                   },
-                  "code": {
-                    "example": "any"
-                  },
                   "phone": {
                     "example": "any"
                   },
                   "mail": {
-                    "example": "any"
-                  },
-                  "password": {
                     "example": "any"
                   }
                 }
@@ -1437,16 +1423,10 @@
                     "institute_id": {
                       "type": "integer"
                     },
-                    "code": {
-                      "type": "string"
-                    },
                     "phone": {
                       "type": "string"
                     },
                     "mail": {
-                      "type": "string"
-                    },
-                    "password": {
                       "type": "string"
                     }
                   },
@@ -1454,12 +1434,10 @@
                     "name",
                     "lastname",
                     "role_id",
-                    "code",
                     "group_id",
                     "institute_id",
                     "phone",
-                    "mail",
-                    "password"
+                    "mail"
                   ]
                 }
               }
@@ -1534,16 +1512,10 @@
                   "institute_id": {
                     "example": "any"
                   },
-                  "code": {
-                    "example": "any"
-                  },
                   "phone": {
                     "example": "any"
                   },
                   "mail": {
-                    "example": "any"
-                  },
-                  "password": {
                     "example": "any"
                   }
                 }
@@ -1732,16 +1704,10 @@
                     "department_id": {
                       "type": "integer"
                     },
-                    "code": {
-                      "type": "string"
-                    },
                     "phone": {
                       "type": "string"
                     },
                     "mail": {
-                      "type": "string"
-                    },
-                    "password": {
                       "type": "string"
                     }
                   },
@@ -1749,11 +1715,9 @@
                     "name",
                     "lastname",
                     "role_id",
-                    "code",
                     "department_id",
                     "phone",
-                    "mail",
-                    "password"
+                    "mail"
                   ]
                 }
               }
@@ -1825,16 +1789,10 @@
                   "department_id": {
                     "example": "any"
                   },
-                  "code": {
-                    "example": "any"
-                  },
                   "phone": {
                     "example": "any"
                   },
                   "mail": {
-                    "example": "any"
-                  },
-                  "password": {
                     "example": "any"
                   }
                 }
@@ -2017,9 +1975,6 @@
                     "role_id": {
                       "type": "integer"
                     },
-                    "code": {
-                      "type": "string"
-                    },
                     "phone": {
                       "type": "string"
                     },
@@ -2031,7 +1986,6 @@
                     "name",
                     "lastname",
                     "role_id",
-                    "code",
                     "phone",
                     "mail"
                   ]
@@ -2103,9 +2057,6 @@
                     "example": "any"
                   },
                   "role_id": {
-                    "example": "any"
-                  },
-                  "code": {
                     "example": "any"
                   },
                   "phone": {

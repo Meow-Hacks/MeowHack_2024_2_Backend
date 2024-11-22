@@ -1,6 +1,8 @@
 const dbPool = require("../config/db");
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
+const generator = require("generate-password");
+const mailer = require("../middleware/mailer");
 
 const getTeachers = async () => {
     const query = `
@@ -22,28 +24,27 @@ const getTeachers = async () => {
 const addTeachers = async (teachers) => {
     const results = [];
     for (const teacher of teachers) {
-        const {name, secondname, lastname, role_id, department_id, code, phone, mail, password} = teacher;
-        const enter_token = jwt.sign({
-            name: teacher.name,
-            secondname: teacher.secondname,
-            lastname: teacher.lastname,
-            role_id: teacher.role_id,
-            department_id: teacher.department_id,
-            code: teacher.code,
-            phone: teacher.phone,
-            mail: teacher.mail
-        }, process.env.SECRET_KEY, {expiresIn: '365d'});
+        const {name, secondname, lastname, role_id, department_id, phone, mail} = teacher;
 
-        if (!name || !lastname || !role_id || !department_id || !code || !phone || !mail || !password) {
+        if (!name || !lastname || !role_id || !department_id || !phone || !mail) {
             throw new Error("All fields are required for each teacher");
         }
 
+        const password = generator.generate({
+            length: 16,
+            numbers: true,
+            symbols: true,
+            lowercase: true,
+            uppercase: true
+        });
+
+        mailer.sendEmail(mail, 'Вам посылка от эльдорадо', password);
+
         const result = await dbPool.query(`
-            INSERT INTO teachers (name, secondname, lastname, role_id, department_id, code, phone, mail, password,
-                                  enter_token)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+            INSERT INTO teachers (name, secondname, lastname, role_id, department_id, phone, mail, password)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
             RETURNING *;
-        `, [name, secondname, lastname, role_id, department_id, code, phone, mail, await bcrypt.hash(password, 10), enter_token]);
+        `, [name, secondname, lastname, role_id, department_id, phone, mail, await bcrypt.hash(password, 10)]);
 
         if (!result.rows) {
             throw new Error('Failed to insert teacher');
@@ -54,17 +55,7 @@ const addTeachers = async (teachers) => {
 };
 
 const updateTeacher = async (id, teacher) => {
-    const {name, secondname, lastname, role_id, department_id, code, phone, mail, password} = teacher;
-    const enter_token = jwt.sign({
-        name: teacher.name,
-        secondname: teacher.secondname,
-        lastname: teacher.lastname,
-        role_id: teacher.role_id,
-        department_id: teacher.department_id,
-        code: teacher.code,
-        phone: teacher.phone,
-        mail: teacher.mail
-    }, process.env.SECRET_KEY, {expiresIn: '365d'});
+    const {name, secondname, lastname, role_id, department_id, phone, mail, password} = teacher;
 
     const query = `
         UPDATE teachers
@@ -73,15 +64,12 @@ const updateTeacher = async (id, teacher) => {
             lastname      = COALESCE($3, lastname),
             role_id       = COALESCE($4, role_id),
             department_id = COALESCE($5, department_id),
-            code          = COALESCE($6, code),
-            phone         = COALESCE($7, phone),
-            mail          = COALESCE($8, mail),
-            password      = COALESCE($9, password),
-            enter_token   = coalesce($10, enter_token)
-        WHERE id = $11
+            phone         = COALESCE($6, phone),
+            mail          = COALESCE($7, mail)
+        WHERE id = $8
         RETURNING *;
     `;
-    const {rows} = await dbPool.query(query, [name, secondname, lastname, role_id, department_id, code, phone, mail, await bcrypt.hash(password, 10), enter_token, id]);
+    const {rows} = await dbPool.query(query, [name, secondname, lastname, role_id, department_id, phone, mail, await bcrypt.hash(password, 10), id]);
     return rows.length === 0 ? null : rows;
 };
 
