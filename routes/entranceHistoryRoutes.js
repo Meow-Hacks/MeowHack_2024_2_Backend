@@ -8,10 +8,10 @@ const {
 } = require('../controllers/entranceHistoryController');
 const checkAdmin = require('../middleware/checkAdmin');
 
-router.get('/students', checkAdmin, getEntranceHistoryStudent());
-router.get('/teachers', checkAdmin, getEntranceHistoryTeacher());
-router.get('/admins', checkAdmin, getEntranceHistoryAdmin());
-router.get('/staff', checkAdmin, getEntranceHistoryStaff());
+router.get('/students', checkAdmin, getEntranceHistoryStudent);
+router.get('/teachers', checkAdmin, getEntranceHistoryTeacher);
+router.get('/admins', checkAdmin, getEntranceHistoryAdmin);
+router.get('/staff', checkAdmin, getEntranceHistoryStaff);
 
 
 module.exports = router;
