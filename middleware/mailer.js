@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
 
 const sendEmail = (to, subject, payload) => {
     const mailOptions = {
-        from: "РОТ МИРАЭ",
+        from: process.env.EMAIL_USER,
         to,
         subject,
         payload

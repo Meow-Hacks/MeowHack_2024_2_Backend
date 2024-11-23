@@ -12,7 +12,7 @@
     }
   ],
   "paths": {
-    "/api/branches/": {
+    "/api/admin/branches/": {
       "get": {
         "tags": [
           "Branches"
@@ -102,7 +102,7 @@
         }
       }
     },
-    "/api/branches/{id}": {
+    "/api/admin/branches/{id}": {
       "put": {
         "tags": [
           "Branches"
@@ -211,7 +211,7 @@
         ]
       }
     },
-    "/api/institutes/": {
+    "/api/admin/institutes/": {
       "get": {
         "tags": [
           "Institutes"
@@ -301,7 +301,7 @@
         }
       }
     },
-    "/api/institutes/{id}": {
+    "/api/admin/institutes/{id}": {
       "put": {
         "tags": [
           "Institutes"
@@ -410,7 +410,7 @@
         ]
       }
     },
-    "/api/auditories/": {
+    "/api/admin/auditories/": {
       "get": {
         "tags": [
           "Auditories"
@@ -503,7 +503,7 @@
         }
       }
     },
-    "/api/auditories/{id}": {
+    "/api/admin/auditories/{id}": {
       "put": {
         "tags": [
           "Auditories"
@@ -615,7 +615,7 @@
         ]
       }
     },
-    "/api/groups/": {
+    "/api/admin/groups/": {
       "get": {
         "tags": [
           "Groups"
@@ -705,7 +705,7 @@
         }
       }
     },
-    "/api/groups/{id}": {
+    "/api/admin/groups/{id}": {
       "put": {
         "tags": [
           "Groups"
@@ -814,7 +814,7 @@
         ]
       }
     },
-    "/api/departments/": {
+    "/api/admin/departments/": {
       "get": {
         "tags": [
           "Departments"
@@ -904,7 +904,7 @@
         }
       }
     },
-    "/api/departments/{id}": {
+    "/api/admin/departments/{id}": {
       "put": {
         "tags": [
           "Departments"
@@ -1013,7 +1013,7 @@
         ]
       }
     },
-    "/api/admins/": {
+    "/api/admin/admins/": {
       "get": {
         "tags": [
           "Admins"
@@ -1162,7 +1162,7 @@
         }
       }
     },
-    "/api/admins/{id}": {
+    "/api/admin/admins/{id}": {
       "put": {
         "tags": [
           "Admins"
@@ -1283,7 +1283,7 @@
         ]
       }
     },
-    "/api/students/": {
+    "/api/admin/students/": {
       "get": {
         "tags": [
           "Students"
@@ -1446,7 +1446,7 @@
         }
       }
     },
-    "/api/students/{id}": {
+    "/api/admin/students/{id}": {
       "put": {
         "tags": [
           "Students"
@@ -1570,7 +1570,7 @@
         ]
       }
     },
-    "/api/teachers/": {
+    "/api/admin/teachers/": {
       "get": {
         "tags": [
           "Teachers"
@@ -1726,7 +1726,7 @@
         }
       }
     },
-    "/api/teachers/{id}": {
+    "/api/admin/teachers/{id}": {
       "put": {
         "tags": [
           "Teachers"
@@ -1847,7 +1847,7 @@
         ]
       }
     },
-    "/api/staff/": {
+    "/api/admin/staff/": {
       "get": {
         "tags": [
           "Staff"
@@ -1996,7 +1996,7 @@
         }
       }
     },
-    "/api/staff/{id}": {
+    "/api/admin/staff/{id}": {
       "put": {
         "tags": [
           "Staff"
@@ -2117,7 +2117,7 @@
         ]
       }
     },
-    "/api/entrance-history/students": {
+    "/api/admin/entrance-history/students": {
       "get": {
         "tags": [
           "Entrance history"
@@ -2153,7 +2153,7 @@
         ]
       }
     },
-    "/api/entrance-history/teachers": {
+    "/api/admin/entrance-history/teachers": {
       "get": {
         "tags": [
           "Entrance history"
@@ -2189,7 +2189,7 @@
         ]
       }
     },
-    "/api/entrance-history/admins": {
+    "/api/admin/entrance-history/admins": {
       "get": {
         "tags": [
           "Entrance history"
@@ -2225,7 +2225,7 @@
         ]
       }
     },
-    "/api/entrance-history/staff": {
+    "/api/admin/entrance-history/staff": {
       "get": {
         "tags": [
           "Entrance history"
@@ -2261,7 +2261,7 @@
         ]
       }
     },
-    "/api/attendance/students/{id}": {
+    "/api/admin/attendance/students/{id}": {
       "get": {
         "tags": [
           "Attendance"
@@ -2305,7 +2305,7 @@
         ]
       }
     },
-    "/api/attendance/lesson/{id}": {
+    "/api/admin/attendance/lesson/{id}": {
       "get": {
         "tags": [
           "Attendance"
@@ -2349,7 +2349,7 @@
         ]
       }
     },
-    "/api/access-control/teacher-auditory/{id}": {
+    "/api/admin/access-control/teacher-auditory/{id}": {
       "get": {
         "tags": [
           "Access Control"
@@ -2393,7 +2393,7 @@
         ]
       }
     },
-    "/api/access-control/auditory-teacher/{id}": {
+    "/api/admin/access-control/auditory-teacher/{id}": {
       "get": {
         "tags": [
           "Access Control"
@@ -2437,7 +2437,7 @@
         ]
       }
     },
-    "/api/access-control/admin-auditory/{id}": {
+    "/api/admin/access-control/admin-auditory/{id}": {
       "get": {
         "tags": [
           "Access Control"
@@ -2481,7 +2481,7 @@
         ]
       }
     },
-    "/api/access-control/auditory-admin/{id}": {
+    "/api/admin/access-control/auditory-admin/{id}": {
       "get": {
         "tags": [
           "Access Control"
@@ -2525,7 +2525,7 @@
         ]
       }
     },
-    "/api/access-control/staff-auditory/{id}": {
+    "/api/admin/access-control/staff-auditory/{id}": {
       "get": {
         "tags": [
           "Access Control"
@@ -2569,7 +2569,7 @@
         ]
       }
     },
-    "/api/access-control/auditory-staff/{id}": {
+    "/api/admin/access-control/auditory-staff/{id}": {
       "get": {
         "tags": [
           "Access Control"
@@ -2613,7 +2613,7 @@
         ]
       }
     },
-    "/api/access-history/teacher-auditory/{id}": {
+    "/api/admin/access-history/teacher-auditory/{id}": {
       "get": {
         "tags": [
           "Access History"
@@ -2657,7 +2657,7 @@
         ]
       }
     },
-    "/api/access-history/auditory-teacher/{id}": {
+    "/api/admin/access-history/auditory-teacher/{id}": {
       "get": {
         "tags": [
           "Access History"
@@ -2701,7 +2701,7 @@
         ]
       }
     },
-    "/api/access-history/admin-auditory/{id}": {
+    "/api/admin/access-history/admin-auditory/{id}": {
       "get": {
         "tags": [
           "Access History"
@@ -2745,7 +2745,7 @@
         ]
       }
     },
-    "/api/access-history/auditory-admin/{id}": {
+    "/api/admin/access-history/auditory-admin/{id}": {
       "get": {
         "tags": [
           "Access History"
@@ -2789,7 +2789,7 @@
         ]
       }
     },
-    "/api/access-history/staff-auditory/{id}": {
+    "/api/admin/access-history/staff-auditory/{id}": {
       "get": {
         "tags": [
           "Access History"
@@ -2833,7 +2833,7 @@
         ]
       }
     },
-    "/api/access-history/auditory-staff/{id}": {
+    "/api/admin/access-history/auditory-staff/{id}": {
       "get": {
         "tags": [
           "Access History"
@@ -2877,7 +2877,7 @@
         ]
       }
     },
-    "/api/enter-token/": {
+    "/api/admin/enter-token/": {
       "post": {
         "tags": [
           "Enter Tokens"

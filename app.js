@@ -22,24 +22,24 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api/admin/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.use('/api/branches', branchRoutes);
-app.use('/api/institutes', instituteRoutes);
-app.use('/api/auditories', auditoriesRoutes);
-app.use('/api/groups', groupsRoutes);
-app.use('/api/departments', departmentsRoutes);
-app.use('/api/admins', adminsRoutes);
-app.use('/api/students', studentsRoutes);
-app.use('/api/teachers', teachersRoutes);
-app.use('/api/staff', staffRoutes);
+app.use('/api/admin/branches', branchRoutes);
+app.use('/api/admin/institutes', instituteRoutes);
+app.use('/api/admin/auditories', auditoriesRoutes);
+app.use('/api/admin/groups', groupsRoutes);
+app.use('/api/admin/departments', departmentsRoutes);
+app.use('/api/admin/admins', adminsRoutes);
+app.use('/api/admin/students', studentsRoutes);
+app.use('/api/admin/teachers', teachersRoutes);
+app.use('/api/admin/staff', staffRoutes);
 
-app.use('/api/entrance-history', entranceHistoryRoutes);
-app.use('/api/attendance', attendanceRoutes);
-app.use('/api/access-control', accessControlRoutes);
-app.use('/api/access-history', accessHistoryRoutes);
+app.use('/api/admin/entrance-history', entranceHistoryRoutes);
+app.use('/api/admin/attendance', attendanceRoutes);
+app.use('/api/admin/access-control', accessControlRoutes);
+app.use('/api/admin/access-history', accessHistoryRoutes);
 
-app.use('/api/enter-token', enterTokenRoutes);
+app.use('/api/admin/enter-token', enterTokenRoutes);
 
 const PORT = process.env.APP_PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
