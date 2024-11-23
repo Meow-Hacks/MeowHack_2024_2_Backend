@@ -16,6 +16,8 @@ const attendanceRoutes = require('./routes/attendanceRoutes');
 const accessControlRoutes = require('./routes/accessControlRoutes');
 const accessHistoryRoutes = require('./routes/accessHistoryRoutes');
 const enterTokenRoutes = require('./routes/enterTokenRoutes');
+const subjectsRoutes = require('./routes/subjectsRoutes');
+const lessonsRoutes = require('./routes/lessonsRoutes');
 
 
 const app = express();
@@ -33,6 +35,8 @@ app.use('/api/admin/admins', adminsRoutes);
 app.use('/api/admin/students', studentsRoutes);
 app.use('/api/admin/teachers', teachersRoutes);
 app.use('/api/admin/staff', staffRoutes);
+app.use('/api/admin/subjects', subjectsRoutes);
+app.use('/api/admin/lessons', lessonsRoutes);
 
 app.use('/api/admin/entrance-history', entranceHistoryRoutes);
 app.use('/api/admin/attendance', attendanceRoutes);
