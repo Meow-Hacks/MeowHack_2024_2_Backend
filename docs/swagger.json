@@ -5,12 +5,6 @@
     "title": "AdminService",
     "description": "Api for university admins"
   },
-  "servers": [
-    {
-      "url": "localhost",
-      "description": ""
-    }
-  ],
   "paths": {
     "/api/admin/branches/": {
       "get": {

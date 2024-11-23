@@ -6,12 +6,6 @@ const doc = {
         title: 'AdminService',
         description: 'Api for university admins'
     },
-    servers: [
-        {
-            url: 'localhost',
-            description: ''
-        },
-    ],
     components: {
         securitySchemes:{
             bearerAuth: {
