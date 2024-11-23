@@ -1,0 +1,41 @@
+name: Build && Deploy
+on:
+  push:
+    branches:
+      - adminMicroservice
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Parse HEAD revision
+        run: echo "COMMIT_HASH=$(git rev-parse HEAD | head -c 8)" >> "$GITHUB_ENV"
+
+      - name: Build mh_adminmicroservice
+        run: docker build -f Dockerfile -t "mh_adminmicroservice:$COMMIT_HASH" .
+      - name: Tag mh_adminmicroservice
+        run: >
+          docker image tag "mh_adminmicroservice:$COMMIT_HASH"
+          "ghcr.io/meow-hacks/mh_adminmicroservice:latest"
+
+      - name: Login into registry
+        run: docker login -u meow-hacks -p ${{ secrets.MEOWHACKS_ACCESS_TOKEN_CLASSIC }} ghcr.io
+
+      - name: Push mh_adminmicroservice image
+        run: docker push ghcr.io/meow-hacks/mh_adminmicroservice:latest
+
+      - name: Delete old mh_adminmicroservice images
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: mh_adminmicroservice
+          package-type: container
+          min-versions-to-keep: 1
+          token: ${{ secrets.MEOWHACKS_ACCESS_TOKEN_CLASSIC }}
+
+      - name: Deploy containers
+        run: |
+          echo "${{ secrets.DEPLOY_CERT }}" > deploy.cert
+          chmod 600 deploy.cert
+          ssh -o "StrictHostKeyChecking no" -i deploy.cert "ci@${{ vars.DEPLOY_HOST }}" "cd ~/mh_adminmicroservice && ./deploy.sh"
