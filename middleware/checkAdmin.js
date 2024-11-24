@@ -64,7 +64,7 @@ function checkRoomsAdmin(req, res, next) {
         return res.status(403).json({message: "Access denied. Admins only."});
     }
 
-    if ((level !== "rooms") || (level !== "all")) {
+    if ((level !== "rooms") && (level !== "all")) {
         return res.status(403).json({message: "Access denied. Rooms or all admins only."});
     }
 
