@@ -9,6 +9,7 @@ const getAdmins = async () => {
                           secondname,
                           lastname,
                           role_id,
+                          level,
                           code,
                           phone,
                           mail,
@@ -21,7 +22,7 @@ const getAdmins = async () => {
 const addAdmins = async (admins) => {
     const results = [];
     for (const admin of admins) {
-        const {name, secondname, lastname, role_id, phone, mail} = admin;
+        const {name, secondname, lastname, role_id, level, phone, mail} = admin;
 
         const password = generator.generate({
             length: 16,
@@ -34,18 +35,18 @@ const addAdmins = async (admins) => {
         mailer.sendEmail(mail, 'Вам посылка от эльдорадо', password);
 
         const query = `
-            INSERT INTO admins (name, secondname, lastname, role_id, phone, mail, password)
-            VALUES ($1, $2, $3, $4, $5, $6, $7)
+            INSERT INTO admins (name, secondname, lastname, role_id, level, phone, mail, password)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
             RETURNING *;
         `;
-        const result = await dbPool.query(query, [name, secondname, lastname, role_id, phone, mail, await bcrypt.hash(password, 10)]);
+        const result = await dbPool.query(query, [name, secondname, lastname, role_id, level, phone, mail, await bcrypt.hash(password, 10)]);
         results.push(result.rows);
     }
     return results;
 };
 
 const updateAdmin = async (id, admin) => {
-    const {name, secondname, lastname, role_id, code, phone, mail} = admin;
+    const {name, secondname, lastname, role_id, level, phone, mail} = admin;
 
     const query = `
         UPDATE admins
@@ -53,12 +54,13 @@ const updateAdmin = async (id, admin) => {
             secondname = COALESCE($2, secondname),
             lastname   = COALESCE($3, lastname),
             role_id    = COALESCE($4, role_id),
-            phone      = COALESCE($5, phone),
-            mail       = COALESCE($6, mail)
-        WHERE id = $7
+            level      = coalesce($5, level),
+            phone      = COALESCE($6, phone),
+            mail       = COALESCE($7, mail)
+        WHERE id = $8
         RETURNING *;
     `;
-    const {rows} = await dbPool.query(query, [name, secondname, lastname, role_id, phone, mail, id]);
+    const {rows} = await dbPool.query(query, [name, secondname, lastname, role_id, level, phone, mail, id]);
     return rows;
 };
 

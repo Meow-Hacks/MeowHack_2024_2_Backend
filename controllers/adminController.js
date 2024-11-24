@@ -2,6 +2,7 @@ const adminModel = require('../models/adminModel');
 
 const getAdmins = async (req, res) => {
     // #swagger.tags = ['Admins']
+    // #swagger.description = 'all admins only'
     /* #swagger.responses[200] = {
        content: {
          "application/json": {
@@ -35,6 +36,7 @@ const getAdmins = async (req, res) => {
 
 const addAdmins = async (req, res) => {
     // #swagger.tags = ['Admins']
+    // #swagger.description = 'all admins only'
     /* #swagger.requestBody = {
             required: true,
             content: {
@@ -74,6 +76,7 @@ const addAdmins = async (req, res) => {
 
 const updateAdmins = async (req, res) => {
     // #swagger.tags = ['Admins']
+    // #swagger.description = 'all admins only'
     const {id} = req.params;
     const {name, secondname, lastname, role_id, phone, mail} = req.body;
 
@@ -96,6 +99,7 @@ const updateAdmins = async (req, res) => {
 
 const deleteAdmins = async (req, res) => {
     // #swagger.tags = ['Admins']
+    // #swagger.description = 'all admins only'
     const {id} = req.params;
 
     try {

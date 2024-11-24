@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const {getStudentAttendance, getLessonAttendance} = require('../controllers/attendanceController');
-const checkAdmin = require('../middleware/checkAdmin');
+const {checkLessonsAdmin} = require('../middleware/checkAdmin');
 
-router.get('/students/:id', checkAdmin, getStudentAttendance);
-router.get('/lesson/:id', checkAdmin, getLessonAttendance);
+router.get('/students/:id', checkLessonsAdmin, getStudentAttendance);
+router.get('/lesson/:id', checkLessonsAdmin, getLessonAttendance);
 
 module.exports = router;

@@ -2,7 +2,7 @@ const accessHistoryModel = require('../models/accessHistoryModel');
 
 const getAuditoryAccessesHistoryTeachersId = async (req, res) => {
     // #swagger.tags = ['Access History']
-    // #swagger.description = 'get accesses history by teacher id'
+    // #swagger.description = 'get accesses history by teacher id (rooms or all admins only)'
     const {id} = req.params;
 
     try {
@@ -16,7 +16,7 @@ const getAuditoryAccessesHistoryTeachersId = async (req, res) => {
 
 const getAuditoryAccessesHistoryAdminsId = async (req, res) => {
     // #swagger.tags = ['Access History']
-    // #swagger.description = 'get accesses history by admin id'
+    // #swagger.description = 'get accesses history by admin id (rooms or all admins only)'
     const {id} = req.params;
 
     try {
@@ -30,7 +30,7 @@ const getAuditoryAccessesHistoryAdminsId = async (req, res) => {
 
 const getAuditoryAccessesHistoryStaffId = async (req, res) => {
     // #swagger.tags = ['Access History']
-    // #swagger.description = 'get accesses history by staff id'
+    // #swagger.description = 'get accesses history by staff id (rooms or all admins only)'
     const {id} = req.params;
 
     try {
@@ -44,7 +44,7 @@ const getAuditoryAccessesHistoryStaffId = async (req, res) => {
 
 const getAuditoryIdAccessesHistoryTeachers = async (req, res) => {
     // #swagger.tags = ['Access History']
-    // #swagger.description = 'get previous teachers with access by auditory id'
+    // #swagger.description = 'get previous teachers with access by auditory id (rooms or all admins only)'
     const {id} = req.params;
 
     try {
@@ -58,7 +58,7 @@ const getAuditoryIdAccessesHistoryTeachers = async (req, res) => {
 
 const getAuditoryIdAccessesHistoryAdmins = async (req, res) => {
     // #swagger.tags = ['Access History']
-    // #swagger.description = 'get previous admins with access by auditory id'
+    // #swagger.description = 'get previous admins with access by auditory id (rooms or all admins only)'
     const {id} = req.params;
 
     try {
@@ -72,7 +72,7 @@ const getAuditoryIdAccessesHistoryAdmins = async (req, res) => {
 
 const getAuditoryIdAccessesHistoryStaff = async (req, res) => {
     // #swagger.tags = ['Access History']
-    // #swagger.description = 'get previous staff with access by auditory id'
+    // #swagger.description = 'get previous staff with access by auditory id (rooms or all admins only)'
     const {id} = req.params;
 
     try {

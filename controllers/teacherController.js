@@ -2,6 +2,7 @@ const teachersModel = require('../models/teacherModel');
 
 const getTeachers = async (req, res) => {
     // #swagger.tags = ['Teachers']
+    // #swagger.description = 'lessons or all admins only'
     /* #swagger.responses[200] = {
         content: {
           "application/json": {
@@ -36,6 +37,7 @@ const getTeachers = async (req, res) => {
 
 const addTeachers = async (req, res) => {
     // #swagger.tags = ['Teachers']
+    // #swagger.description = 'lessons or all admins only'
     /* #swagger.requestBody = {
             required: true,
             content: {
@@ -76,6 +78,7 @@ const addTeachers = async (req, res) => {
 
 const updateTeachers = async (req, res) => {
     // #swagger.tags = ['Teachers']
+    // #swagger.description = 'lessons or all admins only'
     const {id} = req.params;
     const {name, secondname, lastname, role_id, department_id, phone, mail} = req.body;
 
@@ -90,6 +93,7 @@ const updateTeachers = async (req, res) => {
 
 const deleteTeachers = async (req, res) => {
     // #swagger.tags = ['Teachers']
+    // #swagger.description = 'lessons or all admins only'
     const {id} = req.params;
 
     try {

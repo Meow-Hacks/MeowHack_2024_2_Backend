@@ -2,6 +2,7 @@ const subjectsModel = require('../models/subjectsModel');
 
 const getSubjects = async (req, res) => {
     // #swagger.tags = ['Subjects']
+    // #swagger.description = 'lessons or all admins only'
     try {
         const subjects = await subjectsModel.getSubjects();
         res.status(200).json(subjects);
@@ -13,6 +14,7 @@ const getSubjects = async (req, res) => {
 
 const addSubject = async (req, res) => {
     // #swagger.tags = ['Subjects']
+    // #swagger.description = 'lessons or all admins only'
     const {name, default_auditory_id, duration} = req.body;
 
     if (!name) return res.status(400).json({message: "Name is required"});
@@ -28,6 +30,7 @@ const addSubject = async (req, res) => {
 
 const updateSubject = async (req, res) => {
     // #swagger.tags = ['Subjects']
+    // #swagger.description = 'lessons or all admins only'
     const {id} = req.params;
     const {name, default_auditory_id, duration} = req.body;
 
@@ -44,6 +47,7 @@ const updateSubject = async (req, res) => {
 
 const deleteSubject = async (req, res) => {
     // #swagger.tags = ['Subjects']
+    // #swagger.description = 'lessons or all admins only'
     const {id} = req.params;
 
     try {

@@ -2,6 +2,7 @@ const lessonModel = require('../models/lessonsModel');
 
 const getLessons = async (req, res) => {
     // #swagger.tags = ['Lessons']
+    // #swagger.description = 'lessons or all admins only'
     /* #swagger.responses[200] = {
        content: {
          "application/json": {
@@ -35,6 +36,7 @@ const getLessons = async (req, res) => {
 
 const addLessons = async (req, res) => {
     // #swagger.tags = ['Lessons']
+    // #swagger.description = 'lessons or all admins only'
     /* #swagger.requestBody = {
             required: true,
             content: {
@@ -75,6 +77,7 @@ const addLessons = async (req, res) => {
 
 const updateLesson = async (req, res) => {
     // #swagger.tags = ['Lessons']
+    // #swagger.description = 'lessons or all admins only'
     const {id} = req.params;
     const {subject_id, group_id, auditory_id, teacher_id, start_time, end_time, type_of_lesson} = req.body;
 
@@ -98,6 +101,7 @@ const updateLesson = async (req, res) => {
 
 const deleteLesson = async (req, res) => {
     // #swagger.tags = ['Lessons']
+    // #swagger.description = 'lessons or all admins only'
     const {id} = req.params;
 
     try {

@@ -2,6 +2,7 @@ const departmentsModel = require('../models/departmentModel');
 
 const getDepartments = async (req, res) => {
     // #swagger.tags = ['Departments']
+    // #swagger.description = 'lessons or all admins only'
     try {
         const departments = await departmentsModel.getDepartments();
         res.status(200).json(departments);
@@ -13,6 +14,7 @@ const getDepartments = async (req, res) => {
 
 const addDepartments = async (req, res) => {
     // #swagger.tags = ['Departments']
+    // #swagger.description = 'lessons or all admins only'
     const {name, institute_id} = req.body;
 
     if (!name) return res.status(400).json({message: "Name is required"});
@@ -28,6 +30,7 @@ const addDepartments = async (req, res) => {
 
 const updateDepartments = async (req, res) => {
     // #swagger.tags = ['Departments']
+    // #swagger.description = 'lessons or all admins only'
     const {id} = req.params;
     const {name, institute_id} = req.body;
 
@@ -44,6 +47,7 @@ const updateDepartments = async (req, res) => {
 
 const deleteDepartments = async (req, res) => {
     // #swagger.tags = ['Departments']
+    // #swagger.description = 'lessons or all admins only'
     const {id} = req.params;
 
     try {

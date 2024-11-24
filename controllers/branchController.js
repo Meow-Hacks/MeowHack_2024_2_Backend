@@ -2,6 +2,7 @@ const branchesModel = require('../models/branchModel');
 
 const getBranch = async (req, res) => {
     // #swagger.tags = ['Branches']
+    // #swagger.description = 'rooms or all admins only'
     try {
         const branches = await branchesModel.getBranches();
         res.status(200).json(branches);
@@ -13,6 +14,7 @@ const getBranch = async (req, res) => {
 
 const addBranch = async (req, res) => {
     // #swagger.tags = ['Branches']
+    // #swagger.description = 'rooms or all admins only'
     const {name, address} = req.body;
 
     if (!name) return res.status(400).json({message: "Name is required"});
@@ -28,6 +30,7 @@ const addBranch = async (req, res) => {
 
 const updateBranch = async (req, res) => {
     // #swagger.tags = ['Branches']
+    // #swagger.description = 'rooms or all admins only'
     const {id} = req.params;
     const {name, address} = req.body;
 
@@ -44,6 +47,7 @@ const updateBranch = async (req, res) => {
 
 const deleteBranch = async (req, res) => {
     // #swagger.tags = ['Branches']
+    // #swagger.description = 'rooms or all admins only'
     const {id} = req.params;
 
     try {

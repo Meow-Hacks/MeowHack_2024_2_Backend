@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const {getStaff, addStaff, updateStaff, deleteStaff} = require('../controllers/staffController');
-const checkAdmin = require('../middleware/checkAdmin');
+const {checkAllAdmin} = require('../middleware/checkAdmin');
 
-router.get('/', checkAdmin, getStaff);
-router.post('/', checkAdmin, addStaff);
-router.put('/:id', checkAdmin, updateStaff);
-router.delete('/:id', checkAdmin, deleteStaff);
+router.get('/', checkAllAdmin, getStaff);
+router.post('/', checkAllAdmin, addStaff);
+router.put('/:id', checkAllAdmin, updateStaff);
+router.delete('/:id', checkAllAdmin, deleteStaff);
 
 module.exports = router;

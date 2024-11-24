@@ -2,6 +2,7 @@ const attendanceModel = require('../models/attendanceModel');
 
 const getStudentAttendance = async (req, res) => {
     // #swagger.tags = ['Attendance']
+    // #swagger.description = 'lessons or all admins only'
     const {id} = req.params;
 
     try {
@@ -15,6 +16,7 @@ const getStudentAttendance = async (req, res) => {
 
 const getLessonAttendance = async (req, res) => {
     // #swagger.tags = ['Attendance']
+    // #swagger.description = 'lessons or all admins only'
     const {id} = req.params;
 
     try {

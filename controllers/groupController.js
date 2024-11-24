@@ -2,6 +2,7 @@ const groupsModel = require('../models/groupModel');
 
 const getGroups = async (req, res) => {
     // #swagger.tags = ['Groups']
+    // #swagger.description = 'lessons or all admins only'
     try {
         const groups = await groupsModel.getGroups();
         res.status(200).json(groups);
@@ -13,6 +14,7 @@ const getGroups = async (req, res) => {
 
 const addGroups = async (req, res) => {
     // #swagger.tags = ['Groups']
+    // #swagger.description = 'lessons or all admins only'
     const {group_code, institute_id} = req.body;
 
     if (!group_code) return res.status(400).json({message: "Group code is required"});
@@ -28,6 +30,7 @@ const addGroups = async (req, res) => {
 
 const updateGroups = async (req, res) => {
     // #swagger.tags = ['Groups']
+    // #swagger.description = 'lessons or all admins only'
     const {id} = req.params;
     const {group_code, institute_id} = req.body;
 
@@ -44,6 +47,7 @@ const updateGroups = async (req, res) => {
 
 const deleteGroups = async (req, res) => {
     // #swagger.tags = ['Groups']
+    // #swagger.description = 'lessons or all admins only'
     const {id} = req.params;
 
     try {

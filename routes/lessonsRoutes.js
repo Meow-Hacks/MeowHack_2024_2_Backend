@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const {getLessons, addLessons, updateLesson, deleteLesson} = require('../controllers/lessonsController');
-const checkAdmin = require('../middleware/checkAdmin');
+const {checkLessonsAdmin} = require('../middleware/checkAdmin');
 
-router.get('/', checkAdmin, getLessons);
-router.post('/', checkAdmin, addLessons);
-router.put('/:id', checkAdmin, updateLesson);
-router.delete('/:id', checkAdmin, deleteLesson);
+router.get('/', checkLessonsAdmin, getLessons);
+router.post('/', checkLessonsAdmin, addLessons);
+router.put('/:id', checkLessonsAdmin, updateLesson);
+router.delete('/:id', checkLessonsAdmin, deleteLesson);
 
 module.exports = router;

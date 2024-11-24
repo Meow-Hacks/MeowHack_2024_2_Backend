@@ -2,6 +2,7 @@ const entranceHistoryModel = require('../models/entranceHistoryModel');
 
 const getEntranceHistoryStudent = async (req, res) => {
     // #swagger.tags = ['Entrance history']
+    // #swagger.description = 'rooms or all admins only'
     try {
         const students = await entranceHistoryModel.getStudentHistory();
         res.status(200).json(students);
@@ -13,6 +14,7 @@ const getEntranceHistoryStudent = async (req, res) => {
 
 const getEntranceHistoryTeacher = async (req, res) => {
     // #swagger.tags = ['Entrance history']
+    // #swagger.description = 'rooms or all admins only'
     try {
         const teachers = await entranceHistoryModel.getTeacherHistory();
         res.status(200).json(teachers);
@@ -24,6 +26,7 @@ const getEntranceHistoryTeacher = async (req, res) => {
 
 const getEntranceHistoryAdmin = async (req, res) => {
     // #swagger.tags = ['Entrance history']
+    // #swagger.description = 'rooms or all admins only'
     try {
         const admins = await entranceHistoryModel.getAdminHistory();
         res.status(200).json(admins);
@@ -35,6 +38,7 @@ const getEntranceHistoryAdmin = async (req, res) => {
 
 const getEntranceHistoryStaff = async (req, res) => {
     // #swagger.tags = ['Entrance history']
+    // #swagger.description = 'rooms or all admins only'
     try {
         const staff = await entranceHistoryModel.getStuffHistory();
         res.status(200).json(staff);
@@ -44,4 +48,9 @@ const getEntranceHistoryStaff = async (req, res) => {
     }
 };
 
-module.exports = {getEntranceHistoryStudent, getEntranceHistoryTeacher, getEntranceHistoryAdmin, getEntranceHistoryStaff};
+module.exports = {
+    getEntranceHistoryStudent,
+    getEntranceHistoryTeacher,
+    getEntranceHistoryAdmin,
+    getEntranceHistoryStaff
+};

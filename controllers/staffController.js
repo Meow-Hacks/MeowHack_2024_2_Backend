@@ -2,6 +2,7 @@ const staffModel = require('../models/staffModel');
 
 const getStaff = async (req, res) => {
     // #swagger.tags = ['Staff']
+    // #swagger.description = 'all admins only'
     /* #swagger.responses[200] = {
         content: {
           "application/json": {
@@ -35,6 +36,7 @@ const getStaff = async (req, res) => {
 
 const addStaff = async (req, res) => {
     // #swagger.tags = ['Staff']
+    // #swagger.description = 'all admins only'
     /* #swagger.requestBody = {
         required: true,
         content: {
@@ -74,6 +76,7 @@ const addStaff = async (req, res) => {
 
 const updateStaff = async (req, res) => {
     // #swagger.tags = ['Staff']
+    // #swagger.description = 'all admins only'
     const {id} = req.params;
     const {name, secondname, lastname, role_id, phone, mail} = req.body;
 
@@ -89,6 +92,7 @@ const updateStaff = async (req, res) => {
 
 const deleteStaff = async (req, res) => {
     // #swagger.tags = ['Staff']
+    // #swagger.description = 'all admins only'
     const {id} = req.params;
 
     try {

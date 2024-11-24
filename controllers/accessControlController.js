@@ -2,7 +2,7 @@ const accessControlModel = require('../models/accessControlModel');
 
 const getAuditoryAccessesTeachersId = async (req, res) => {
     // #swagger.tags = ['Access Control']
-    // #swagger.description = 'get accesses by teacher id'
+    // #swagger.description = 'get accesses by teacher id (rooms or all admins only)'
     const {id} = req.params;
 
     try {
@@ -16,7 +16,7 @@ const getAuditoryAccessesTeachersId = async (req, res) => {
 
 const getAuditoryAccessesAdminsId = async (req, res) => {
     // #swagger.tags = ['Access Control']
-    // #swagger.description = 'get accesses by admin id'
+    // #swagger.description = 'get accesses by admin id (rooms or all admins only)'
     const {id} = req.params;
 
     try {
@@ -30,7 +30,7 @@ const getAuditoryAccessesAdminsId = async (req, res) => {
 
 const getAuditoryAccessesStaffId = async (req, res) => {
     // #swagger.tags = ['Access Control']
-    // #swagger.description = 'get accesses by staff id'
+    // #swagger.description = 'get accesses by staff id (rooms or all admins only)'
     const {id} = req.params;
 
     try {
@@ -44,7 +44,7 @@ const getAuditoryAccessesStaffId = async (req, res) => {
 
 const getAuditoryIdAccessesTeachers = async (req, res) => {
     // #swagger.tags = ['Access Control']
-    // #swagger.description = 'get teachers with access by auditory id'
+    // #swagger.description = 'get teachers with access by auditory id (rooms or all admins only)'
     const {id} = req.params;
 
     try {
@@ -58,7 +58,7 @@ const getAuditoryIdAccessesTeachers = async (req, res) => {
 
 const getAuditoryIdAccessesAdmins = async (req, res) => {
     // #swagger.tags = ['Access Control']
-    // #swagger.description = 'get admins with access by auditory id'
+    // #swagger.description = 'get admins with access by auditory id (rooms or all admins only)'
     const {id} = req.params;
 
     try {
@@ -72,7 +72,7 @@ const getAuditoryIdAccessesAdmins = async (req, res) => {
 
 const getAuditoryIdAccessesStaff = async (req, res) => {
     // #swagger.tags = ['Access Control']
-    // #swagger.description = 'get staff with access by auditory id'
+    // #swagger.description = 'get staff with access by auditory id (rooms or all admins only)'
     const {id} = req.params;
 
     try {

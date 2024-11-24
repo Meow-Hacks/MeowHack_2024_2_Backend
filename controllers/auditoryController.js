@@ -2,6 +2,7 @@ const auditoriesModel = require('../models/auditoryModel');
 
 const getAuditories = async (req, res) => {
     // #swagger.tags = ['Auditories']
+    // #swagger.description = 'rooms or all admins only'
     try {
         const auditories = await auditoriesModel.getAuditories();
         res.status(200).json(auditories);
@@ -13,6 +14,7 @@ const getAuditories = async (req, res) => {
 
 const addAuditories = async (req, res) => {
     // #swagger.tags = ['Auditories']
+    // #swagger.description = 'rooms or all admins only'
     const {name, capacity, branch_id} = req.body;
     if (!name) return res.status(400).json({message: "Name is required"});
 
@@ -27,6 +29,7 @@ const addAuditories = async (req, res) => {
 
 const updateAuditories = async (req, res) => {
     // #swagger.tags = ['Auditories']
+    // #swagger.description = 'rooms or all admins only'
     const {id} = req.params;
     const {name, capacity, branch_id} = req.body;
     if (!name) return res.status(400).json({message: "Name is required"});
@@ -42,6 +45,7 @@ const updateAuditories = async (req, res) => {
 
 const deleteAuditories = async (req, res) => {
     // #swagger.tags = ['Auditories']
+    // #swagger.description = 'rooms or all admins only'
     const {id} = req.params;
 
     try {

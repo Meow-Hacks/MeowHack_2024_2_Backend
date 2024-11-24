@@ -8,13 +8,13 @@ const {
     getAuditoryIdAccessesHistoryAdmins,
     getAuditoryIdAccessesHistoryStaff
 } = require('../controllers/accessHistoryController');
-const checkAdmin = require('../middleware/checkAdmin');
+const {checkRoomsAdmin} = require('../middleware/checkAdmin');
 
-router.get('/teacher-auditory/:id', checkAdmin, getAuditoryAccessesHistoryTeachersId);
-router.get('/auditory-teacher/:id', checkAdmin, getAuditoryIdAccessesHistoryTeachers);
-router.get('/admin-auditory/:id', checkAdmin, getAuditoryAccessesHistoryAdminsId);
-router.get('/auditory-admin/:id', checkAdmin, getAuditoryIdAccessesHistoryAdmins);
-router.get('/staff-auditory/:id', checkAdmin, getAuditoryAccessesHistoryStaffId);
-router.get('/auditory-staff/:id', checkAdmin, getAuditoryIdAccessesHistoryStaff);
+router.get('/teacher-auditory/:id', checkRoomsAdmin, getAuditoryAccessesHistoryTeachersId);
+router.get('/auditory-teacher/:id', checkRoomsAdmin, getAuditoryIdAccessesHistoryTeachers);
+router.get('/admin-auditory/:id', checkRoomsAdmin, getAuditoryAccessesHistoryAdminsId);
+router.get('/auditory-admin/:id', checkRoomsAdmin, getAuditoryIdAccessesHistoryAdmins);
+router.get('/staff-auditory/:id', checkRoomsAdmin, getAuditoryAccessesHistoryStaffId);
+router.get('/auditory-staff/:id', checkRoomsAdmin, getAuditoryIdAccessesHistoryStaff);
 
 module.exports = router;

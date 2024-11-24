@@ -11,7 +11,7 @@
         "tags": [
           "Branches"
         ],
-        "description": "",
+        "description": "rooms or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -45,7 +45,7 @@
         "tags": [
           "Branches"
         ],
-        "description": "",
+        "description": "rooms or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -101,7 +101,7 @@
         "tags": [
           "Branches"
         ],
-        "description": "",
+        "description": "rooms or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -163,7 +163,7 @@
         "tags": [
           "Branches"
         ],
-        "description": "",
+        "description": "rooms or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -210,7 +210,7 @@
         "tags": [
           "Institutes"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -244,7 +244,7 @@
         "tags": [
           "Institutes"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -300,7 +300,7 @@
         "tags": [
           "Institutes"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -362,7 +362,7 @@
         "tags": [
           "Institutes"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -409,7 +409,7 @@
         "tags": [
           "Auditories"
         ],
-        "description": "",
+        "description": "rooms or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -443,7 +443,7 @@
         "tags": [
           "Auditories"
         ],
-        "description": "",
+        "description": "rooms or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -502,7 +502,7 @@
         "tags": [
           "Auditories"
         ],
-        "description": "",
+        "description": "rooms or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -567,7 +567,7 @@
         "tags": [
           "Auditories"
         ],
-        "description": "",
+        "description": "rooms or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -614,7 +614,7 @@
         "tags": [
           "Groups"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -648,7 +648,7 @@
         "tags": [
           "Groups"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -704,7 +704,7 @@
         "tags": [
           "Groups"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -766,7 +766,7 @@
         "tags": [
           "Groups"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -813,7 +813,7 @@
         "tags": [
           "Departments"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -847,7 +847,7 @@
         "tags": [
           "Departments"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -903,7 +903,7 @@
         "tags": [
           "Departments"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -965,7 +965,7 @@
         "tags": [
           "Departments"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -1012,7 +1012,7 @@
         "tags": [
           "Admins"
         ],
-        "description": "",
+        "description": "all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -1082,7 +1082,7 @@
         "tags": [
           "Admins"
         ],
-        "description": "",
+        "description": "all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -1161,7 +1161,7 @@
         "tags": [
           "Admins"
         ],
-        "description": "",
+        "description": "all admins only",
         "parameters": [
           {
             "name": "id",
@@ -1235,7 +1235,7 @@
         "tags": [
           "Admins"
         ],
-        "description": "",
+        "description": "all admins only",
         "parameters": [
           {
             "name": "id",
@@ -1282,7 +1282,7 @@
         "tags": [
           "Students"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -1358,7 +1358,7 @@
         "tags": [
           "Students"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -1445,7 +1445,7 @@
         "tags": [
           "Students"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -1522,7 +1522,7 @@
         "tags": [
           "Students"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -1569,7 +1569,7 @@
         "tags": [
           "Teachers"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -1642,7 +1642,7 @@
         "tags": [
           "Teachers"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -1725,7 +1725,7 @@
         "tags": [
           "Teachers"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -1799,7 +1799,7 @@
         "tags": [
           "Teachers"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -1846,7 +1846,7 @@
         "tags": [
           "Staff"
         ],
-        "description": "",
+        "description": "all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -1916,7 +1916,7 @@
         "tags": [
           "Staff"
         ],
-        "description": "",
+        "description": "all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -1995,7 +1995,7 @@
         "tags": [
           "Staff"
         ],
-        "description": "",
+        "description": "all admins only",
         "parameters": [
           {
             "name": "id",
@@ -2069,7 +2069,7 @@
         "tags": [
           "Staff"
         ],
-        "description": "",
+        "description": "all admins only",
         "parameters": [
           {
             "name": "id",
@@ -2116,7 +2116,7 @@
         "tags": [
           "Subjects"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -2150,7 +2150,7 @@
         "tags": [
           "Subjects"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -2209,7 +2209,7 @@
         "tags": [
           "Subjects"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -2274,7 +2274,7 @@
         "tags": [
           "Subjects"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -2321,7 +2321,7 @@
         "tags": [
           "Lessons"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -2393,7 +2393,7 @@
         "tags": [
           "Lessons"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -2479,7 +2479,7 @@
         "tags": [
           "Lessons"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -2556,7 +2556,7 @@
         "tags": [
           "Lessons"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -2603,7 +2603,7 @@
         "tags": [
           "Entrance history"
         ],
-        "description": "",
+        "description": "rooms or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -2639,7 +2639,7 @@
         "tags": [
           "Entrance history"
         ],
-        "description": "",
+        "description": "rooms or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -2675,7 +2675,7 @@
         "tags": [
           "Entrance history"
         ],
-        "description": "",
+        "description": "rooms or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -2711,7 +2711,7 @@
         "tags": [
           "Entrance history"
         ],
-        "description": "",
+        "description": "rooms or all admins only",
         "parameters": [
           {
             "name": "authorization",
@@ -2747,7 +2747,7 @@
         "tags": [
           "Attendance"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -2791,7 +2791,7 @@
         "tags": [
           "Attendance"
         ],
-        "description": "",
+        "description": "lessons or all admins only",
         "parameters": [
           {
             "name": "id",
@@ -2835,7 +2835,7 @@
         "tags": [
           "Access Control"
         ],
-        "description": "get accesses by teacher id",
+        "description": "get accesses by teacher id (rooms or all admins only)",
         "parameters": [
           {
             "name": "id",
@@ -2879,7 +2879,7 @@
         "tags": [
           "Access Control"
         ],
-        "description": "get teachers with access by auditory id",
+        "description": "get teachers with access by auditory id (rooms or all admins only)",
         "parameters": [
           {
             "name": "id",
@@ -2923,7 +2923,7 @@
         "tags": [
           "Access Control"
         ],
-        "description": "get accesses by admin id",
+        "description": "get accesses by admin id (rooms or all admins only)",
         "parameters": [
           {
             "name": "id",
@@ -2967,7 +2967,7 @@
         "tags": [
           "Access Control"
         ],
-        "description": "get admins with access by auditory id",
+        "description": "get admins with access by auditory id (rooms or all admins only)",
         "parameters": [
           {
             "name": "id",
@@ -3011,7 +3011,7 @@
         "tags": [
           "Access Control"
         ],
-        "description": "get accesses by staff id",
+        "description": "get accesses by staff id (rooms or all admins only)",
         "parameters": [
           {
             "name": "id",
@@ -3055,7 +3055,7 @@
         "tags": [
           "Access Control"
         ],
-        "description": "get staff with access by auditory id",
+        "description": "get staff with access by auditory id (rooms or all admins only)",
         "parameters": [
           {
             "name": "id",
@@ -3099,7 +3099,7 @@
         "tags": [
           "Access History"
         ],
-        "description": "get accesses history by teacher id",
+        "description": "get accesses history by teacher id (rooms or all admins only)",
         "parameters": [
           {
             "name": "id",
@@ -3143,7 +3143,7 @@
         "tags": [
           "Access History"
         ],
-        "description": "get previous teachers with access by auditory id",
+        "description": "get previous teachers with access by auditory id (rooms or all admins only)",
         "parameters": [
           {
             "name": "id",
@@ -3187,7 +3187,7 @@
         "tags": [
           "Access History"
         ],
-        "description": "get accesses history by admin id",
+        "description": "get accesses history by admin id (rooms or all admins only)",
         "parameters": [
           {
             "name": "id",
@@ -3231,7 +3231,7 @@
         "tags": [
           "Access History"
         ],
-        "description": "get previous admins with access by auditory id",
+        "description": "get previous admins with access by auditory id (rooms or all admins only)",
         "parameters": [
           {
             "name": "id",
@@ -3275,7 +3275,7 @@
         "tags": [
           "Access History"
         ],
-        "description": "get accesses history by staff id",
+        "description": "get accesses history by staff id (rooms or all admins only)",
         "parameters": [
           {
             "name": "id",
@@ -3319,7 +3319,7 @@
         "tags": [
           "Access History"
         ],
-        "description": "get previous staff with access by auditory id",
+        "description": "get previous staff with access by auditory id (rooms or all admins only)",
         "parameters": [
           {
             "name": "id",
