@@ -89,7 +89,7 @@ function checkLessonsAdmin(req, res, next) {
         return res.status(403).json({message: "Access denied. Admins only."});
     }
 
-    if ((level !== "lessons") || (level !== "all")) {
+    if ((level !== "lessons") && (level !== "all")) {
         return res.status(403).json({message: "Access denied. Lessons or all admins only."});
     }
 
