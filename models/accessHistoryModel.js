@@ -1,6 +1,6 @@
 const dbPool = require("../config/db");
 
-const getAuditoryAccessesHistoryTeachersId = async () => {
+const getAuditoryAccessesHistoryTeachersId = async (id) => {
     const query = `SELECT *
                    FROM accesshistory_teacher
                    WHERE teacher_id = $1`;
@@ -8,7 +8,7 @@ const getAuditoryAccessesHistoryTeachersId = async () => {
     return rows;
 };
 
-const getAuditoryAccessesHistoryAdminsId = async () => {
+const getAuditoryAccessesHistoryAdminsId = async (id) => {
     const query = `SELECT *
                    FROM accesshistory_admin
                    WHERE admin_id = $1`;
@@ -16,7 +16,7 @@ const getAuditoryAccessesHistoryAdminsId = async () => {
     return rows;
 };
 
-const getAuditoryAccessesHistoryStaffId = async () => {
+const getAuditoryAccessesHistoryStaffId = async (id) => {
     const query = `SELECT *
                    FROM accesshistory_staff
                    WHERE staff_id = $1`;
@@ -24,7 +24,7 @@ const getAuditoryAccessesHistoryStaffId = async () => {
     return rows;
 };
 
-const getAuditoryIdAccessesHistoryTeachers = async () => {
+const getAuditoryIdAccessesHistoryTeachers = async (id) => {
     const query = `SELECT *
                    FROM accesshistory_teacher
                    WHERE auditory_id = $1`;
@@ -32,7 +32,7 @@ const getAuditoryIdAccessesHistoryTeachers = async () => {
     return rows;
 };
 
-const getAuditoryIdAccessesHistoryAdmins = async () => {
+const getAuditoryIdAccessesHistoryAdmins = async (id) => {
     const query = `SELECT *
                    FROM accesshistory_admin
                    WHERE auditory_id = $1`;
@@ -40,7 +40,7 @@ const getAuditoryIdAccessesHistoryAdmins = async () => {
     return rows;
 };
 
-const getAuditoryIdAccessesHistoryStaff = async () => {
+const getAuditoryIdAccessesHistoryStaff = async (id) => {
     const query = `SELECT *
                    FROM accesshistory_staff
                    WHERE auditory_id = $1`;
