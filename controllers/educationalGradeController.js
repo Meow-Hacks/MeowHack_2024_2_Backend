@@ -30,7 +30,6 @@ const getMarksByGroupId = async (req, res) => {
     // #swagger.tags = ['Educational Grade']
     // #swagger.description = 'lessons or all admins only'
     /* #swagger.responses[200] = {
-            required: true,
             content: {
               "application/json": {
                 schema: {

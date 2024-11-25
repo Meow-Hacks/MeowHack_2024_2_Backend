@@ -825,13 +825,21 @@
         }
       }
     },
-    "/api/admin/groups/id": {
+    "/api/admin/groups/{id}": {
       "get": {
         "tags": [
           "Groups"
         ],
         "description": "lessons or all admins only",
         "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "authorization",
             "in": "header",
@@ -859,9 +867,7 @@
             "bearerAuth": []
           }
         ]
-      }
-    },
-    "/api/admin/groups/{id}": {
+      },
       "put": {
         "tags": [
           "Groups"
@@ -4801,7 +4807,6 @@
         "responses": {
           "200": {
             "description": "OK",
-            "required": true,
             "content": {
               "application/json": {
                 "schema": {
