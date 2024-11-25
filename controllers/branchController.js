@@ -12,6 +12,19 @@ const getBranch = async (req, res) => {
     }
 };
 
+const getBranchById = async (req, res) => {
+    // #swagger.tags = ['Branches']
+    // #swagger.description = 'rooms or all admins only'
+    try {
+        const {id} = req.params;
+        const branch = await branchesModel.getBranchById(id);
+        res.status(200).json(branch);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
 const addBranch = async (req, res) => {
     // #swagger.tags = ['Branches']
     // #swagger.description = 'rooms or all admins only'
@@ -60,4 +73,4 @@ const deleteBranch = async (req, res) => {
     }
 };
 
-module.exports = {getBranch, addBranch, updateBranch, deleteBranch};
+module.exports = {getBranch, getBranchById, addBranch, updateBranch, deleteBranch};

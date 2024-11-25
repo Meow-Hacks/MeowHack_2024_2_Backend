@@ -7,6 +7,14 @@ const getSubjects = async () => {
     return rows;
 };
 
+const getSubjectById = async (id) => {
+    const query = `SELECT *
+                   FROM subjects
+                   WHERE id = $1`;
+    const {rows} = await dbPool.query(query, [id]);
+    return rows[0];
+};
+
 const addSubject = async (name, default_auditory_id, duration) => {
     const query = `INSERT INTO subjects (name, default_auditory_id, duration)
                    VALUES ($1, $2, $3)
@@ -35,4 +43,4 @@ const deleteSubject = async (id) => {
     return rows;
 };
 
-module.exports = {getSubjects, addSubject, updateSubject, deleteSubject};
+module.exports = {getSubjects, getSubjectById, addSubject, updateSubject, deleteSubject};

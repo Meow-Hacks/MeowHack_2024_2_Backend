@@ -34,6 +34,38 @@ const getLessons = async (req, res) => {
     }
 };
 
+const getLessonById = async (req, res) => {
+    // #swagger.tags = ['Lessons']
+    // #swagger.description = 'lessons or all admins only'
+    /* #swagger.responses[200] = {
+       content: {
+         "application/json": {
+           schema: {
+             type: "object",
+               properties: {
+                 id: {type: "integer" },
+                 subject_id: { type: "string" },
+                 group_id: { type: "string" },
+                 auditory_id: { type: "string" },
+                 teacher_id: { type: "integer" },
+                 start_time: { type: "string", format: "date-time" },
+                 end_time: { type: "string", format: "date-time" },
+                 type_of_lesson: { type: "string" }
+               }
+           }
+         }
+       }
+     } */
+    try {
+        const {id} = req.params;
+        const lessons = await lessonModel.getLessonById(id);
+        res.status(200).json(lessons);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
 const addLessons = async (req, res) => {
     // #swagger.tags = ['Lessons']
     // #swagger.description = 'lessons or all admins only'
@@ -114,4 +146,4 @@ const deleteLesson = async (req, res) => {
     }
 };
 
-module.exports = {getLessons, addLessons, updateLesson, deleteLesson};
+module.exports = {getLessons, getLessonById, addLessons, updateLesson, deleteLesson};

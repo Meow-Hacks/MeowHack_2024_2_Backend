@@ -11,6 +11,7 @@ const getAdmins = async (req, res) => {
              items: {
                type: "object",
                properties: {
+                 id: { type: "integer" },
                  name: { type: "string" },
                  secondname: { type: "string" },
                  lastname: { type: "string" },
@@ -28,6 +29,39 @@ const getAdmins = async (req, res) => {
     try {
         const admins = await adminModel.getAdmins();
         res.status(200).json(admins);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
+const getAdminById = async (req, res) => {
+    // #swagger.tags = ['Admins']
+    // #swagger.description = 'all admins only'
+    /* #swagger.responses[200] = {
+       content: {
+         "application/json": {
+           schema: {
+             type: "object",
+               properties: {
+                 id: { type: "integer" },
+                 name: { type: "string" },
+                 secondname: { type: "string" },
+                 lastname: { type: "string" },
+                 role_id: { type: "integer" },
+                 code: { type: "string" },
+                 phone: { type: "string" },
+                 mail: { type: "string" },
+                 enter_token: { type: "string" }
+             }
+           }
+         }
+       }
+     } */
+    try {
+        const {id} = req.params;
+        const admin = await adminModel.getAdminById(id);
+        res.status(200).json(admin);
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});
@@ -112,4 +146,4 @@ const deleteAdmins = async (req, res) => {
     }
 };
 
-module.exports = {getAdmins, addAdmins, updateAdmins, deleteAdmins};
+module.exports = {getAdmins, getAdminById, addAdmins, updateAdmins, deleteAdmins};

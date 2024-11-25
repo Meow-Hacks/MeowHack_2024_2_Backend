@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const {generateEnterToken} = require('../controllers/enterTokenController');
+const enterTokenController = require('../controllers/enterTokenController');
 const {checkAdmin} = require('../middleware/checkAdmin');
 
-router.post('/', checkAdmin, generateEnterToken);
+router.post('/', checkAdmin, enterTokenController.generateEnterToken);
 
 module.exports = router;

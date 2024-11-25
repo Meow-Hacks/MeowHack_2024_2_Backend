@@ -7,6 +7,14 @@ const getLessons = async () => {
     return rows;
 };
 
+const getLessonById = async (id) => {
+    const query = `SELECT *
+                   FROM lessons
+                   WHERE id = $1;`;
+    const {rows} = await dbPool.query(query, [id]);
+    return rows[0];
+};
+
 const addLessons = async (lessons) => {
     const results = [];
     for (const lesson of lessons) {
@@ -51,4 +59,4 @@ const deleteLesson = async (id) => {
     return rows;
 };
 
-module.exports = {getLessons, addLessons, updateLesson, deleteLesson};
+module.exports = {getLessons, getLessonById, addLessons, updateLesson, deleteLesson};

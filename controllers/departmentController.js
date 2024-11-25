@@ -12,6 +12,19 @@ const getDepartments = async (req, res) => {
     }
 };
 
+const getDepartmentById = async (req, res) => {
+    // #swagger.tags = ['Departments']
+    // #swagger.description = 'lessons or all admins only'
+    try {
+        const {id} = req.params;
+        const department = await departmentsModel.getDepartmentsById(id);
+        res.status(200).json(department);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
 const addDepartments = async (req, res) => {
     // #swagger.tags = ['Departments']
     // #swagger.description = 'lessons or all admins only'
@@ -60,4 +73,4 @@ const deleteDepartments = async (req, res) => {
     }
 };
 
-module.exports = {getDepartments, addDepartments, updateDepartments, deleteDepartments};
+module.exports = {getDepartments, getDepartmentById, addDepartments, updateDepartments, deleteDepartments};

@@ -5,7 +5,8 @@ const mailer = require('../middleware/mailer');
 
 
 const getAdmins = async () => {
-    const query = `SELECT name,
+    const query = `SELECT id,
+                          name,
                           secondname,
                           lastname,
                           role_id,
@@ -17,6 +18,23 @@ const getAdmins = async () => {
                    FROM admins;`;
     const {rows} = await dbPool.query(query);
     return rows;
+};
+
+const getAdminById = async (id) => {
+    const query = `SELECT id,
+                          name,
+                          secondname,
+                          lastname,
+                          role_id,
+                          level,
+                          code,
+                          phone,
+                          mail,
+                          enter_token
+                   FROM admins
+                   WHERE id = $1;`;
+    const {rows} = await dbPool.query(query, [id]);
+    return rows[0];
 };
 
 const addAdmins = async (admins) => {
@@ -73,4 +91,4 @@ const deleteAdmin = async (id) => {
     return rows;
 };
 
-module.exports = {getAdmins, addAdmins, updateAdmin, deleteAdmin};
+module.exports = {getAdmins, getAdminById, addAdmins, updateAdmin, deleteAdmin};

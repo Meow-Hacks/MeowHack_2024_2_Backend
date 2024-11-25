@@ -7,6 +7,14 @@ const getGroups = async () => {
     return rows;
 };
 
+const getGroupById = async (id) => {
+    const query = `SELECT *
+                   FROM groups
+                   WHERE id = $1`;
+    const {rows} = await dbPool.query(query, [id]);
+    return rows[0];
+};
+
 const addGroup = async (group_code, institute_id) => {
     const query = `INSERT INTO groups (group_code, institute_id)
                    VALUES ($1, $2)
@@ -34,4 +42,4 @@ const deleteGroup = async (id) => {
     return rows.length === 0 ? null : rows;
 };
 
-module.exports = {getGroups, addGroup, updateGroup, deleteGroup};
+module.exports = {getGroups, getGroupById, addGroup, updateGroup, deleteGroup};

@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {getAuditories, addAuditories, updateAuditories, deleteAuditories} = require('../controllers/auditoryController');
+const auditoryController = require('../controllers/auditoryController');
 const {checkRoomsAdmin} = require('../middleware/checkAdmin');
 
-router.get('/', checkRoomsAdmin, getAuditories);
-router.post('/', checkRoomsAdmin, addAuditories);
-router.put('/:id', checkRoomsAdmin, updateAuditories);
-router.delete('/:id', checkRoomsAdmin, deleteAuditories);
+router.get('/', checkRoomsAdmin, auditoryController.getAuditories);
+router.get('/:id', checkRoomsAdmin, auditoryController.getAuditoryById);
+router.post('/', checkRoomsAdmin, auditoryController.addAuditories);
+router.put('/:id', checkRoomsAdmin, auditoryController.updateAuditories);
+router.delete('/:id', checkRoomsAdmin, auditoryController.deleteAuditories);
 
 module.exports = router;

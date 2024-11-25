@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {getGroups, addGroups, updateGroups, deleteGroups} = require('../controllers/groupController');
+const groupsController = require('../controllers/groupController');
 const {checkLessonsAdmin} = require('../middleware/checkAdmin');
 
-router.get('/', checkLessonsAdmin, getGroups);
-router.post('/', checkLessonsAdmin, addGroups);
-router.put('/:id', checkLessonsAdmin, updateGroups);
-router.delete('/:id', checkLessonsAdmin, deleteGroups);
+router.get('/', checkLessonsAdmin, groupsController.getGroups);
+router.get('/id', checkLessonsAdmin, groupsController.getGroupById);
+router.post('/', checkLessonsAdmin, groupsController.addGroups);
+router.put('/:id', checkLessonsAdmin, groupsController.updateGroups);
+router.delete('/:id', checkLessonsAdmin, groupsController.deleteGroups);
 
 module.exports = router;

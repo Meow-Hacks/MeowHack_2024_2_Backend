@@ -5,7 +5,8 @@ const generator = require("generate-password");
 const mailer = require("../middleware/mailer");
 
 const getStudents = async () => {
-    const query = `SELECT name,
+    const query = `SELECT id,
+                          name,
                           secondname,
                           lastname,
                           role_id,
@@ -18,6 +19,24 @@ const getStudents = async () => {
                    FROM students`;
     const {rows} = await dbPool.query(query);
     return rows;
+};
+
+const getStudentById = async (id) => {
+    const query = `SELECT id,
+                          name,
+                          secondname,
+                          lastname,
+                          role_id,
+                          group_id,
+                          institute_id,
+                          code,
+                          phone,
+                          mail,
+                          enter_token
+                   FROM students
+                   WHERE id = $1`;
+    const {rows} = await dbPool.query(query, [id]);
+    return rows[0];
 };
 
 const addStudents = async (students) => {
@@ -83,4 +102,4 @@ const deleteStudent = async (id) => {
     return rows.length === 0 ? null : rows;
 };
 
-module.exports = {getStudents, addStudents, updateStudent, deleteStudent};
+module.exports = {getStudents, getStudentById, addStudents, updateStudent, deleteStudent};

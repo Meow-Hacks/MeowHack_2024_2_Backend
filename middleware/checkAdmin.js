@@ -10,15 +10,23 @@ function checkAdmin(req, res, next) {
 
     if (token == null) return res.sendStatus(401);
 
-    const decoded = jwt.verify(token, process.env.SECRET_KEY);
-    const {role, level} = decoded;
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+        if (err) {
+            if (err.name === 'TokenExpiredError' || err.name === 'JsonWebTokenError') {
+                return res.status(401).json({message: "Token has expired or is invalid"});
+            }
+            return res.status(403).json({message: "Could not verify token"});
+        }
 
-    if (role !== "admin") {
-        return res.status(403).json({message: "Access denied. Admins only."});
-    }
+        const {role} = decoded;
 
-    req.user = decoded;
-    next();
+        if (role !== "admin") {
+            return res.status(403).json({message: "Access denied. Admins only."});
+        }
+
+        req.user = decoded;
+        next();
+    });
 }
 
 
@@ -32,19 +40,27 @@ function checkAllAdmin(req, res, next) {
 
     if (token == null) return res.sendStatus(401);
 
-    const decoded = jwt.verify(token, process.env.SECRET_KEY);
-    const {role, level} = decoded;
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+        if (err) {
+            if (err.name === 'TokenExpiredError' || err.name === 'JsonWebTokenError') {
+                return res.status(401).json({message: "Token has expired or is invalid"});
+            }
+            return res.status(403).json({message: "Could not verify token"});
+        }
 
-    if (role !== "admin") {
-        return res.status(403).json({message: "Access denied. Admins only."});
-    }
+        const {role, level} = decoded;
 
-    if (level !== "all") {
-        return res.status(403).json({message: "Access denied. All admins only."});
-    }
+        if (role !== "admin") {
+            return res.status(403).json({message: "Access denied. Admins only."});
+        }
 
-    req.user = decoded;
-    next();
+        if (level !== "all") {
+            return res.status(403).json({message: "Access denied. All admins only."});
+        }
+
+        req.user = decoded;
+        next();
+    });
 }
 
 function checkRoomsAdmin(req, res, next) {
@@ -57,19 +73,27 @@ function checkRoomsAdmin(req, res, next) {
 
     if (token == null) return res.sendStatus(401);
 
-    const decoded = jwt.verify(token, process.env.SECRET_KEY);
-    const {role, level} = decoded;
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+        if (err) {
+            if (err.name === 'TokenExpiredError' || err.name === 'JsonWebTokenError') {
+                return res.status(401).json({message: "Token has expired or is invalid"});
+            }
+            return res.status(403).json({message: "Could not verify token"});
+        }
 
-    if (role !== "admin") {
-        return res.status(403).json({message: "Access denied. Admins only."});
-    }
+        const {role, level} = decoded;
 
-    if ((level !== "rooms") && (level !== "all")) {
-        return res.status(403).json({message: "Access denied. Rooms or all admins only."});
-    }
+        if (role !== "admin") {
+            return res.status(403).json({message: "Access denied. Admins only."});
+        }
 
-    req.user = decoded;
-    next();
+        if ((level !== "rooms") && (level !== "all")) {
+            return res.status(403).json({message: "Access denied. Rooms or all admins only."});
+        }
+
+        req.user = decoded;
+        next();
+    });
 }
 
 function checkLessonsAdmin(req, res, next) {
@@ -82,19 +106,27 @@ function checkLessonsAdmin(req, res, next) {
 
     if (token == null) return res.sendStatus(401);
 
-    const decoded = jwt.verify(token, process.env.SECRET_KEY);
-    const {role, level} = decoded;
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+        if (err) {
+            if (err.name === 'TokenExpiredError' || err.name === 'JsonWebTokenError') {
+                return res.status(401).json({message: "Token has expired or is invalid"});
+            }
+            return res.status(403).json({message: "Could not verify token"});
+        }
 
-    if (role !== "admin") {
-        return res.status(403).json({message: "Access denied. Admins only."});
-    }
+        const {role, level} = decoded;
 
-    if ((level !== "lessons") && (level !== "all")) {
-        return res.status(403).json({message: "Access denied. Lessons or all admins only."});
-    }
+        if (role !== "admin") {
+            return res.status(403).json({message: "Access denied. Admins only."});
+        }
 
-    req.user = decoded;
-    next();
+        if ((level !== "lessons") && (level !== "all")) {
+            return res.status(403).json({message: "Access denied. Lessons or all admins only."});
+        }
+
+        req.user = decoded;
+        next();
+    });
 }
 
 module.exports = {checkRoomsAdmin, checkLessonsAdmin, checkAllAdmin, checkAdmin};

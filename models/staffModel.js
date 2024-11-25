@@ -2,7 +2,8 @@ const dbPool = require("../config/db");
 const jwt = require("jsonwebtoken");
 
 const getStaff = async () => {
-    const query = `SELECT name,
+    const query = `SELECT id,
+                          name,
                           lastname,
                           secondname,
                           role_id,
@@ -13,6 +14,22 @@ const getStaff = async () => {
                    FROM staff;`;
     const {rows} = await dbPool.query(query);
     return rows;
+};
+
+const getStaffById = async (id) => {
+    const query = `SELECT id,
+                          name,
+                          lastname,
+                          secondname,
+                          role_id,
+                          code,
+                          phone,
+                          mail,
+                          enter_token
+                   FROM staff
+                   WHERE id = $1`;
+    const {rows} = await dbPool.query(query, [id]);
+    return rows[0];
 };
 
 const addStaff = async (staffs) => {
@@ -58,4 +75,4 @@ const deleteStaff = async (id) => {
     return rows;
 };
 
-module.exports = {getStaff, addStaff, updateStaff, deleteStaff};
+module.exports = {getStaff, getStaffById, addStaff, updateStaff, deleteStaff};

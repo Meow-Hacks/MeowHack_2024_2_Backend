@@ -7,6 +7,14 @@ const getInstitutes = async () => {
     return rows;
 };
 
+const getInstituteById = async (id) => {
+    const query = `SELECT *
+                   FROM institutes
+                   WHERE id = $1`;
+    const {rows} = await dbPool.query(query, [id]);
+    return rows[0];
+};
+
 const addInstitute = async (name, branch_id) => {
     const query = `INSERT INTO institutes (name, branch_id)
                    VALUES ($1, $2)
@@ -34,4 +42,4 @@ const deleteInstitute = async (id) => {
     return rows.length === 0 ? null : rows;
 };
 
-module.exports = {getInstitutes, addInstitute, updateInstitute, deleteInstitute};
+module.exports = {getInstitutes, getInstituteById, addInstitute, updateInstitute, deleteInstitute};

@@ -11,6 +11,7 @@ const getStudents = async (req, res) => {
               items: {
                 type: "object",
                 properties: {
+                  id: { type: "integer" },
                   name: { type: "string" },
                   secondname: { type: "string" },
                   lastname: { type: "string" },
@@ -29,6 +30,41 @@ const getStudents = async (req, res) => {
       } */
     try {
         const students = await studentsModel.getStudents();
+        res.status(200).json(students);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
+const getStudentById = async (req, res) => {
+    // #swagger.tags = ['Students']
+    // #swagger.description = 'lessons or all admins only'
+    /* #swagger.responses[200] = {
+        content: {
+          "application/json": {
+            schema: {
+              type: "object",
+                properties: {
+                  id: { type: "integer" },
+                  name: { type: "string" },
+                  secondname: { type: "string" },
+                  lastname: { type: "string" },
+                  role_id: { type: "integer" },
+                  group_id: { type: "integer" },
+                  institute_id: { type: "integer" },
+                  code: { type: "string" },
+                  phone: { type: "string" },
+                  mail: { type: "string" },
+                  enter_token: { type: "string" }
+                }
+            }
+          }
+        }
+      } */
+    try {
+        const {id} = req.params;
+        const students = await studentsModel.getStudentById(id);
         res.status(200).json(students);
     } catch (err) {
         console.error(err);
@@ -108,4 +144,4 @@ const deleteStudent = async (req, res) => {
     }
 };
 
-module.exports = {getStudents, addStudents, updateStudents, deleteStudent};
+module.exports = {getStudents, getStudentById, addStudents, updateStudents, deleteStudent};

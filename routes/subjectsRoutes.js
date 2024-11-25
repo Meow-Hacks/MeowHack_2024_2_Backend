@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {getSubjects, addSubject, updateSubject, deleteSubject} = require('../controllers/subjectsController');
+const subjectsController = require('../controllers/subjectsController');
 const {checkLessonsAdmin} = require('../middleware/checkAdmin');
 
-router.get('/', checkLessonsAdmin, getSubjects);
-router.post('/', checkLessonsAdmin, addSubject);
-router.put('/:id', checkLessonsAdmin, updateSubject);
-router.delete('/:id', checkLessonsAdmin, deleteSubject);
+router.get('/', checkLessonsAdmin, subjectsController.getSubjects);
+router.get('/:id', checkLessonsAdmin, subjectsController.getSubjectById);
+router.post('/', checkLessonsAdmin, subjectsController.addSubject);
+router.put('/:id', checkLessonsAdmin, subjectsController.updateSubject);
+router.delete('/:id', checkLessonsAdmin, subjectsController.deleteSubject);
 
 module.exports = router;

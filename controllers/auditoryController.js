@@ -12,6 +12,19 @@ const getAuditories = async (req, res) => {
     }
 };
 
+const getAuditoryById = async (req, res) => {
+    // #swagger.tags = ['Auditories']
+    // #swagger.description = 'rooms or all admins only'
+    try {
+        const {id} = req.params;
+        const auditory = await auditoriesModel.getAuditoryById(id);
+        res.status(200).json(auditory);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
 const addAuditories = async (req, res) => {
     // #swagger.tags = ['Auditories']
     // #swagger.description = 'rooms or all admins only'
@@ -58,4 +71,4 @@ const deleteAuditories = async (req, res) => {
     }
 };
 
-module.exports = {getAuditories, addAuditories, updateAuditories, deleteAuditories};
+module.exports = {getAuditories, getAuditoryById, addAuditories, updateAuditories, deleteAuditories};

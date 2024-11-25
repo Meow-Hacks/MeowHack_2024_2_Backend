@@ -12,6 +12,19 @@ const getSubjects = async (req, res) => {
     }
 };
 
+const getSubjectById = async (req, res) => {
+    // #swagger.tags = ['Subjects']
+    // #swagger.description = 'lessons or all admins only'
+    try {
+        const {id} = req.params;
+        const subjects = await subjectsModel.getSubjectById(id);
+        res.status(200).json(subjects);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
 const addSubject = async (req, res) => {
     // #swagger.tags = ['Subjects']
     // #swagger.description = 'lessons or all admins only'
@@ -60,4 +73,4 @@ const deleteSubject = async (req, res) => {
     }
 };
 
-module.exports = {getSubjects, addSubject, updateSubject, deleteSubject};
+module.exports = {getSubjects, getSubjectById, addSubject, updateSubject, deleteSubject};

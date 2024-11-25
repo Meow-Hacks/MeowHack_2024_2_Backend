@@ -7,6 +7,14 @@ const getDepartments = async () => {
     return rows;
 };
 
+const getDepartmentsById = async (id) => {
+    const query = `SELECT *
+                   FROM department
+                   WHERE id = $1;`;
+    const {rows} = await dbPool.query(query, [id]);
+    return rows[0];
+};
+
 const addDepartment = async (name, institute_id) => {
     const query = `INSERT INTO department (name, institute_id)
                    VALUES ($1, $2)
@@ -34,4 +42,4 @@ const deleteDepartment = async (id) => {
     return rows;
 };
 
-module.exports = {getDepartments, addDepartment, updateDepartment, deleteDepartment};
+module.exports = {getDepartments, getDepartmentsById, addDepartment, updateDepartment, deleteDepartment};
