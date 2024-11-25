@@ -1,6 +1,5 @@
 const dbPool = require("../config/db");
 const bcrypt = require('bcryptjs');
-const jwt = require("jsonwebtoken");
 const generator = require("generate-password");
 const mailer = require("../middleware/mailer");
 
@@ -102,4 +101,12 @@ const deleteStudent = async (id) => {
     return rows.length === 0 ? null : rows;
 };
 
-module.exports = {getStudents, getStudentById, addStudents, updateStudent, deleteStudent};
+const getStudentMarksById = async (student_id) => {
+    const query = `SELECT *
+                   FROM mark
+                   WHERE student_id = $1`;
+    const {rows} = await dbPool.query(query, [student_id]);
+    return rows;
+};
+
+module.exports = {getStudents, getStudentById, addStudents, updateStudent, deleteStudent, getStudentMarksById};

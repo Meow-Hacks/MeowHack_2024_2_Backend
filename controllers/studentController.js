@@ -144,4 +144,35 @@ const deleteStudent = async (req, res) => {
     }
 };
 
-module.exports = {getStudents, getStudentById, addStudents, updateStudents, deleteStudent};
+const getStudentMarksById = async (req, res) => {
+    // #swagger.tags = ['Students']
+    // #swagger.description = 'lessons or all admins only'
+    /* #swagger.responses[200] = {
+        content: {
+          "application/json": {
+            schema: {
+              type: "array",
+              items: {
+                type: "object",
+                    properties: {
+                      id: { type: "integer" },
+                      student_id: { type: "integer" },
+                      lesson_id: { type: "integer" },
+                      mark: { type: "integer" }
+                }
+              }
+            }
+          }
+        }
+      } */
+    try {
+        const {id} = req.params;
+        const marks = await studentsModel.getStudentMarksById(id);
+        res.status(200).json(marks);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
+module.exports = {getStudents, getStudentById, addStudents, updateStudents, deleteStudent, getStudentMarksById};
