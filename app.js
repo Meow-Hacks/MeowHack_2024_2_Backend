@@ -18,6 +18,7 @@ const accessHistoryRoutes = require('./routes/accessHistoryRoutes');
 const enterTokenRoutes = require('./routes/enterTokenRoutes');
 const subjectsRoutes = require('./routes/subjectsRoutes');
 const lessonsRoutes = require('./routes/lessonsRoutes');
+const educationalGradeRoutes = require('./routes/educationalGradeRoutes');
 
 
 const app = express();
@@ -44,6 +45,8 @@ app.use('/api/admin/access-control', accessControlRoutes);
 app.use('/api/admin/access-history', accessHistoryRoutes);
 
 app.use('/api/admin/enter-token', enterTokenRoutes);
+
+app.use('/api/admin/grade', educationalGradeRoutes);
 
 const PORT = process.env.APP_PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
