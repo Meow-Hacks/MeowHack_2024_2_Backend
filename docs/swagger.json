@@ -3750,6 +3750,207 @@
         ]
       }
     },
+    "/api/admin/access-control/grant-access-teacher": {
+      "post": {
+        "tags": [
+          "Access Control"
+        ],
+        "description": "grant access to auditory by teacher id (rooms or all admins only)",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "teacher_id": {
+                    "type": "integer"
+                  },
+                  "auditory_id": {
+                    "type": "integer"
+                  },
+                  "access_start_time": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "teacher_id",
+                  "auditory_id",
+                  "access_start_time",
+                  "type"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/access-control/grant-access-admin": {
+      "post": {
+        "tags": [
+          "Access Control"
+        ],
+        "description": "grant access to auditory by admin id (rooms or all admins only)",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "admin_id": {
+                    "type": "integer"
+                  },
+                  "auditory_id": {
+                    "type": "integer"
+                  },
+                  "access_start_time": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "admin_id",
+                  "auditory_id",
+                  "access_start_time",
+                  "type"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/access-control/grant-access-staff": {
+      "post": {
+        "tags": [
+          "Access Control"
+        ],
+        "description": "grant access to auditory by staff id (rooms or all admins only)",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "staff_id": {
+                    "type": "integer"
+                  },
+                  "auditory_id": {
+                    "type": "integer"
+                  },
+                  "access_start_time": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "staff_id",
+                  "auditory_id",
+                  "access_start_time",
+                  "type"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/admin/access-history/teacher-auditory/{id}": {
       "get": {
         "tags": [

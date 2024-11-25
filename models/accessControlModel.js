@@ -48,11 +48,41 @@ const getAuditoryIdAccessesStaff = async (id) => {
     return rows;
 };
 
+const grantAccessByTeacherId = async (id, access) => {
+    const {teacher_id, auditory_id, access_start_time, type} = access;
+    const query = `INSERT INTO accesscontrol_teacher (teacher_id, auditory_id, access_start_time, type)
+                   VALUES ($1, $2, $3, $4)
+                   RETURNING *`;
+    const {rows} = await dbPool.query(query, [teacher_id, auditory_id, access_start_time, type]);
+    return rows[0];
+};
+
+const grantAccessByAdminId = async (id, access) => {
+    const {admin_id, auditory_id, access_start_time, type} = access;
+    const query = `INSERT INTO accesscontrol_admin (admin_id, auditory_id, access_start_time, type)
+                   VALUES ($1, $2, $3, $4)
+                   RETURNING *`;
+    const {rows} = await dbPool.query(query, [admin_id, auditory_id, access_start_time, type]);
+    return rows[0];
+};
+
+const grantAccessByStaffId = async (id, access) => {
+    const {staff_id, auditory_id, access_start_time, type} = access;
+    const query = `INSERT INTO accesscontrol_staff (staff_id, auditory_id, access_start_time, type)
+                   VALUES ($1, $2, $3, $4)
+                   RETURNING *`;
+    const {rows} = await dbPool.query(query, [staff_id, auditory_id, access_start_time, type]);
+    return rows[0];
+};
+
 module.exports = {
     getAuditoryAccessesTeachersId,
     getAuditoryAccessesAdminsId,
     getAuditoryAccessesStaffId,
     getAuditoryIdAccessesTeachers,
     getAuditoryIdAccessesAdmins,
-    getAuditoryIdAccessesStaff
+    getAuditoryIdAccessesStaff,
+    grantAccessByTeacherId,
+    grantAccessByAdminId,
+    grantAccessByStaffId
 };
