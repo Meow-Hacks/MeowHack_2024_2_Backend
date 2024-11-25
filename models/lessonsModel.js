@@ -1,16 +1,22 @@
 const dbPool = require("../config/db");
 
 const getLessons = async () => {
-    const query = `SELECT *
-                   FROM lessons;`;
+    const query = `
+        SELECT l.*, i.id AS institute_id
+        FROM lessons l
+                 JOIN auditories a ON l.auditory_id = a.id
+                 JOIN institutes i ON a.branch_id = i.branch_id;
+    `;
     const {rows} = await dbPool.query(query);
     return rows;
 };
 
 const getLessonById = async (id) => {
-    const query = `SELECT *
-                   FROM lessons
-                   WHERE id = $1;`;
+    const query = `SELECT l.*, i.id AS institute_id
+                   FROM lessons l
+                            JOIN auditories a ON l.auditory_id = a.id
+                            JOIN institutes i ON a.branch_id = i.branch_id
+                   WHERE l.id = $1;`;
     const {rows} = await dbPool.query(query, [id]);
     return rows[0];
 };

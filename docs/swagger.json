@@ -4774,6 +4774,84 @@
           }
         ]
       }
+    },
+    "/api/admin/grade/group-marks/{id}": {
+      "get": {
+        "tags": [
+          "Educational Grade"
+        ],
+        "description": "lessons or all admins only",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "student_id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "secondname": {
+                        "type": "string"
+                      },
+                      "lastname": {
+                        "type": "string"
+                      },
+                      "lesson_id": {
+                        "type": "integer"
+                      },
+                      "mark": {
+                        "type": "integer"
+                      },
+                      "subject_id": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
     }
   },
   "components": {
