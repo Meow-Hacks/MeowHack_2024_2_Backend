@@ -1,5 +1,4 @@
 const accessControlModel = require('../models/accessControlModel');
-const branchesModel = require("../models/branchModel");
 
 const getAuditoryAccessesTeachersId = async (req, res) => {
     // #swagger.tags = ['Access Control']
@@ -105,11 +104,57 @@ const grantAccessByTeacherId = async (req, res) => {
               }
             }
           } */
-    const {id, access} = req.body;
+    const {access} = req.body;
 
     try {
-        const result = await accessControlModel.grantAccessByTeacherId(id, access);
+        const result = await accessControlModel.grantAccessByTeacherId(access);
         res.status(201).json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
+const updateTeacherAccessById = async (req, res) => {
+    // #swagger.tags = ['Access Control']
+    // #swagger.description = 'update access to auditory for teacher by id (rooms or all admins only)'
+    /* #swagger.requestBody = {
+            required: true,
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                    properties: {
+                      teacher_id: { type: "integer" },
+                      auditory_id: { type: "integer" },
+                      access_start_time: { type: "string", format: "date-time" },
+                      type: { type: "string" }
+                    }
+                }
+              }
+            }
+          } */
+    const {id} = req.params;
+    const {access} = req.body;
+
+    try {
+        const updatedAccess = await accessControlModel.updateTeacherAccessById(id, access);
+        res.status(200).json(updatedAccess);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
+const deleteTeacherAccessById = async (req, res) => {
+    // #swagger.tags = ['Access Control']
+    // #swagger.description = 'rooms or all admins only'
+    const {id} = req.params;
+
+    try {
+        const result = await accessControlModel.deleteTeacherAccessById(id);
+        if (!result) return res.status(404).json({message: "Access not found"});
+        res.status(200).json({message: "Access deleted", access: result});
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});
@@ -136,11 +181,57 @@ const grantAccessByAdminId = async (req, res) => {
               }
             }
           } */
-    const {id, access} = req.body;
+    const {access} = req.body;
 
     try {
-        const result = await accessControlModel.grantAccessByAdminId(id, access);
+        const result = await accessControlModel.grantAccessByAdminId(access);
         res.status(201).json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
+const updateAdminAccessById = async (req, res) => {
+    // #swagger.tags = ['Access Control']
+    // #swagger.description = 'update access to auditory for admin by id (rooms or all admins only)'
+    /* #swagger.requestBody = {
+            required: true,
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                    properties: {
+                      admin_id: { type: "integer" },
+                      auditory_id: { type: "integer" },
+                      access_start_time: { type: "string", format: "date-time" },
+                      type: { type: "string" }
+                    }
+                }
+              }
+            }
+          } */
+    const {id} = req.params;
+    const {access} = req.body;
+
+    try {
+        const updatedAccess = await accessControlModel.updateAdminAccessById(id, access);
+        res.status(200).json(updatedAccess);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
+const deleteAdminAccessById = async (req, res) => {
+    // #swagger.tags = ['Access Control']
+    // #swagger.description = 'rooms or all admins only'
+    const {id} = req.params;
+
+    try {
+        const result = await accessControlModel.deleteAdminAccessById(id);
+        if (!result) return res.status(404).json({message: "Access not found"});
+        res.status(200).json({message: "Access deleted", access: result});
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});
@@ -167,11 +258,57 @@ const grantAccessByStaffId = async (req, res) => {
               }
             }
           } */
-    const {id, access} = req.body;
+    const {access} = req.body;
 
     try {
-        const result = await accessControlModel.grantAccessByStaffId(id, access);
+        const result = await accessControlModel.grantAccessByStaffId(access);
         res.status(201).json(result);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
+const updateStaffAccessById = async (req, res) => {
+    // #swagger.tags = ['Access Control']
+    // #swagger.description = 'update access to auditory for staff by id (rooms or all admins only)'
+    /* #swagger.requestBody = {
+            required: true,
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                    properties: {
+                      admin_id: { type: "integer" },
+                      auditory_id: { type: "integer" },
+                      access_start_time: { type: "string", format: "date-time" },
+                      type: { type: "string" }
+                    }
+                }
+              }
+            }
+          } */
+    const {id} = req.params;
+    const {access} = req.body;
+
+    try {
+        const updatedAccess = await accessControlModel.updateStaffAccessById(id, access);
+        res.status(200).json(updatedAccess);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({message: "Database error"});
+    }
+};
+
+const deleteStaffAccessById = async (req, res) => {
+    // #swagger.tags = ['Access Control']
+    // #swagger.description = 'rooms or all admins only'
+    const {id} = req.params;
+
+    try {
+        const result = await accessControlModel.deleteStaffAccessById(id);
+        if (!result) return res.status(404).json({message: "Access not found"});
+        res.status(200).json({message: "Access deleted", access: result});
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Database error"});
@@ -187,5 +324,11 @@ module.exports = {
     getAuditoryIdAccessesStaff,
     grantAccessByTeacherId,
     grantAccessByAdminId,
-    grantAccessByStaffId
+    grantAccessByStaffId,
+    updateTeacherAccessById,
+    deleteTeacherAccessById,
+    updateAdminAccessById,
+    deleteAdminAccessById,
+    updateStaffAccessById,
+    deleteStaffAccessById
 };
