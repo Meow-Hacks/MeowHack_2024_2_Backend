@@ -104,7 +104,7 @@ const grantAccessByTeacherId = async (req, res) => {
               }
             }
           } */
-    const {access} = req.body;
+    const access = req.body;
 
     try {
         const result = await accessControlModel.grantAccessByTeacherId(access);
@@ -135,7 +135,7 @@ const updateTeacherAccessById = async (req, res) => {
             }
           } */
     const {id} = req.params;
-    const {access} = req.body;
+    const access = req.body;
 
     try {
         const updatedAccess = await accessControlModel.updateTeacherAccessById(id, access);
@@ -181,7 +181,7 @@ const grantAccessByAdminId = async (req, res) => {
               }
             }
           } */
-    const {access} = req.body;
+    const access = req.body;
 
     try {
         const result = await accessControlModel.grantAccessByAdminId(access);
@@ -212,7 +212,7 @@ const updateAdminAccessById = async (req, res) => {
             }
           } */
     const {id} = req.params;
-    const {access} = req.body;
+    const access = req.body;
 
     try {
         const updatedAccess = await accessControlModel.updateAdminAccessById(id, access);
@@ -258,7 +258,7 @@ const grantAccessByStaffId = async (req, res) => {
               }
             }
           } */
-    const {access} = req.body;
+    const access = req.body;
 
     try {
         const result = await accessControlModel.grantAccessByStaffId(access);
@@ -289,7 +289,7 @@ const updateStaffAccessById = async (req, res) => {
             }
           } */
     const {id} = req.params;
-    const {access} = req.body;
+    const access = req.body;
 
     try {
         const updatedAccess = await accessControlModel.updateStaffAccessById(id, access);
